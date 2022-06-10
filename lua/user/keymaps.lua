@@ -33,7 +33,7 @@ keymap('i', '<c-s>', '<ESC>:w<CR>', {})  -- ctrl-save < ESC :w : INSERT
 -- keymap('i', '<c-s>', '<ESC>:w<CR>a', {})  -- ctrl-save < ESC :w : INSERT
 
 -- Close buffer
-keymap('n', '<c-w>', ':bd<CR>', {})
+keymap('n', '<c-w>', ':Bdelete<CR>', {})
 
 
 -- Resize with arrows
@@ -55,6 +55,11 @@ keymap("v", "<", ">gv", opts)
 -- Telescope
 -- keymap("n", "<C-p>", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = true }))<cr>", opts)
 keymap("n", "<leader>f", "<cmd>Telescope git_files<cr>", opts)
+-- Open buffers on telescope
+keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>", opts)
+
+-- Open marks on telescope
+keymap("n", "<leader>m", "<cmd>Telescope buffers<cr>", opts)
 
 --keymap("n", "<leader>ts", "<cmd>Telescope lsp_document_symbols<cr>", opts)
 keymap("n", "<leader>s", "<cmd>Telescope lsp_document_symbols<cr>", opts)

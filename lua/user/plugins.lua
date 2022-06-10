@@ -48,7 +48,7 @@ return packer.startup(function(use)
 
   -- themes
   use "sainnhe/sonokai"
-  use "EdenEast/nightfox.nvim"
+  -- use "EdenEast/nightfox.nvim"
 
   -- use {'neoclide/coc.nvim', branch = 'release'}
   use "nvim-telescope/telescope.nvim"
@@ -78,10 +78,17 @@ return packer.startup(function(use)
   }
   use "p00f/nvim-ts-rainbow"
   use "chrisbra/Colorizer"
-  
+
   -- Plugins to navigate or improve code navigation
   use "kshenoy/vim-signature"
   use "easymotion/vim-easymotion"
+  use "karb94/neoscroll.nvim"
+
+  -- Code managment
+  use "numToStr/Comment.nvim"
+  use "JoosepAlviste/nvim-ts-context-commentstring"
+  -- Git
+  use "lewis6991/gitsigns.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

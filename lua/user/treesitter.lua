@@ -1,4 +1,5 @@
 local configs = require("nvim-treesitter.configs")
+
 configs.setup {
   -- ensure_installed = "maintained",
   ensure_installed = {'php', 'typescript', 'css', 'json', 'prisma', 'tsx', 'vue', 'html'},
@@ -22,7 +23,10 @@ configs.setup {
 	-- colors = {}
 	-- termcolors = {} -- table of clour name strings
   },
-
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  }
 }
 -- code foinding
 -- :qvimvim.opt.foldmethod = "expr"
