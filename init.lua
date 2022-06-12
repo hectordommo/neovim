@@ -9,6 +9,7 @@ require "user.bufferline"
 require "user.neoscroll"
 require "user.comment"
 require "user.gitsigns"
+require "user.lualine"
 
 
 vim.cmd "colorscheme sonokai"

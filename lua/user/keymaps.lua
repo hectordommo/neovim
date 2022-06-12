@@ -10,6 +10,8 @@ local keymap = vim.api.nvim_set_keymap
  vim.g.mapleader = " "
  vim.g.maplocalleader = " "
 
+--add another esc key bind
+-- keymap("i", "<A-q>", "<ESC>", {})
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",

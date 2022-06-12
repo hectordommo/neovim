@@ -56,6 +56,10 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-web-devicons"
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
@@ -87,6 +91,7 @@ return packer.startup(function(use)
   -- Code managment
   use "numToStr/Comment.nvim"
   use "JoosepAlviste/nvim-ts-context-commentstring"
+  use "tpope/vim-surround"
   -- Git
   use "lewis6991/gitsigns.nvim"
 
