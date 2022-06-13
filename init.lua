@@ -10,6 +10,7 @@ require "user.neoscroll"
 require "user.comment"
 require "user.gitsigns"
 require "user.lualine"
+require "user.nvim-tree"
 
 
 vim.cmd "colorscheme sonokai"

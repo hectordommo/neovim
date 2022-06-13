@@ -87,6 +87,7 @@ return packer.startup(function(use)
   use "kshenoy/vim-signature"
   use "easymotion/vim-easymotion"
   use "karb94/neoscroll.nvim"
+  use "kyazdani42/nvim-tree.lua"
 
   -- Code managment
   use "numToStr/Comment.nvim"
