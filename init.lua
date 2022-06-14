@@ -1,6 +1,7 @@
 require "options"
 require "user.keymaps"
 require "user.plugins"
+require "user.autocommands"
 require "user.cmp"
 require "user.lsp"
 require "user.treesitter"
@@ -11,6 +12,8 @@ require "user.comment"
 require "user.gitsigns"
 require "user.lualine"
 require "user.nvim-tree"
+-- require "user.gps"
+-- require "user.winbar"
 
 
 vim.cmd "colorscheme sonokai"

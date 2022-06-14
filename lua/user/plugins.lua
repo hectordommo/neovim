@@ -83,6 +83,8 @@ return packer.startup(function(use)
   use "p00f/nvim-ts-rainbow"
   use "chrisbra/Colorizer"
 
+  -- display code context
+  use { "christianchiarulli/nvim-gps", branch = "text_hl" }
   -- Plugins to navigate or improve code navigation
   use "kshenoy/vim-signature"
   use "easymotion/vim-easymotion"
