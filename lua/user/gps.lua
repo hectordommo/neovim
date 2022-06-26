@@ -2,7 +2,9 @@ local status_ok, gps = pcall(require, "nvim-gps")
 if not status_ok then
   return
 end
-return;
+
+return
+
 local icons = require("user.icons")
 
 -- vim.api.nvim_set_hl(0, "WinBarSeparator", { fg = "#111fff" })

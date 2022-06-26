@@ -90,6 +90,7 @@ return packer.startup(function(use)
   use "easymotion/vim-easymotion"
   use "karb94/neoscroll.nvim"
   use "kyazdani42/nvim-tree.lua"
+  use "RRethy/vim-illuminate"
 
   -- Code managment
   use "numToStr/Comment.nvim"
