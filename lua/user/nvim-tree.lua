@@ -28,10 +28,8 @@ nvim_tree.setup {
   open_on_tab = false,
   hijack_cursor = false,
   update_cwd = true,
-  update_to_buf_dir = {
-    enable = true,
-    auto_open = true,
-  },
+  auto_reload_on_write = true,
+  sort_by = "name",
   diagnostics = {
     enable = true,
     show_on_dirs = false,
@@ -57,7 +55,7 @@ nvim_tree.setup {
     height = 30,
     hide_root_folder = false,
     side = "left",
-    auto_resize = true,
+    adaptive_size = false,
     mappings = {
       custom_only = false,
       list = {
@@ -71,6 +69,16 @@ nvim_tree.setup {
   },
   renderer = {
     icons = {
+      webdev_colors = true,
+      git_placement = "before",
+      padding = " ",
+      symlink_arrow = " ➛ ",
+      show = {
+        file = true,
+        folder = true,
+        folder_arrow = true,
+        git = true,
+      },
       glyphs = {
         default = "",
         symlink = "",
