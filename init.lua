@@ -14,9 +14,10 @@ require "user.gitsigns"
 require "user.lualine"
 require "user.nvim-tree"
 require "user.neoclip"
+require "user.illuminate"
+require "user.sonokai"     -- theme
 -- require "user.gps"
 -- require "user.winbar"
 
 
-vim.cmd "colorscheme sonokai"
 -- vim.cmd "colorscheme nightfox"
