@@ -13,6 +13,7 @@ require "user.comment"
 require "user.gitsigns"
 require "user.lualine"
 require "user.nvim-tree"
+require "user.neoclip"
 -- require "user.gps"
 -- require "user.winbar"
 

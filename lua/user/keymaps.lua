@@ -63,6 +63,9 @@ keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>", opts)
 -- Open marks on telescope
 keymap("n", "<leader>m", "<cmd>Telescope buffers<cr>", opts)
 
+-- Open neoclip on telescope
+keymap("n", "<leader>c", "<cmd>Telescope neoclip<cr>", opts)
+
 --keymap("n", "<leader>ts", "<cmd>Telescope lsp_document_symbols<cr>", opts)
 keymap("n", "<leader>s", "<cmd>Telescope lsp_document_symbols<cr>", opts)
 -- Personal keymaps

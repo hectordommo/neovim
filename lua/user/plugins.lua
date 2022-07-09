@@ -56,10 +56,10 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-web-devicons"
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
-    use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
@@ -80,17 +80,22 @@ return packer.startup(function(use)
 	"nvim-treesitter/nvim-treesitter",
 	run = ":TSUpdate"
   }
-  use "p00f/nvim-ts-rainbow"
+  use "p00f/nvim-ts-rainbow"           -- Rainbow parentheses (config @ treesitter file)
   use "chrisbra/Colorizer"
 
   -- display code context
-  use { "christianchiarulli/nvim-gps", branch = "text_hl" }
+  use {
+    "SmiteshP/nvim-navic",
+    requires = "neovim/nvim-lspconfig"
+  }
   -- Plugins to navigate or improve code navigation
   use "kshenoy/vim-signature"
   use "easymotion/vim-easymotion"
   use "karb94/neoscroll.nvim"
   use "kyazdani42/nvim-tree.lua"
   use "RRethy/vim-illuminate"
+  use "ray-x/lsp_signature.nvim"
+  use "gabesoft/vim-ags"
 
   -- Code managment
   use "numToStr/Comment.nvim"
