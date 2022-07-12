@@ -20,3 +20,4 @@ vim.opt.fileencoding = "utf-8"  -- the encoding written to a file
 vim.opt.updatetime = 300        -- the encoding written to a file
 vim.opt.cursorline = true
 vim.opt.scrolloff = 3
+vim.opt.clipboard = 'unnamedplus'

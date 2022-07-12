@@ -48,6 +48,7 @@ return packer.startup(function(use)
 
   -- themes
   use "sainnhe/sonokai"
+  use "themercorp/themer.lua"
   -- use "EdenEast/nightfox.nvim"
 
   -- use {'neoclide/coc.nvim', branch = 'release'}
@@ -96,6 +97,7 @@ return packer.startup(function(use)
   use "RRethy/vim-illuminate"
   use "ray-x/lsp_signature.nvim"
   use "gabesoft/vim-ags"
+  use "lukas-reineke/indent-blankline.nvim"
 
   -- Code managment
   use "numToStr/Comment.nvim"

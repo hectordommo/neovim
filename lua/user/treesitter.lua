@@ -21,6 +21,14 @@ configs.setup {
 
   },
   indent = { enable = true, disable = { "yaml" } },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+        init_selection = "gnn",
+        node_incremental = "grn",
+        scope_incremental = "grc",
+    }
+  },
   rainbow = {
 	enable= true,
 		-- disable = {"jsx", "cpp"}, -- list of languages you want to disable the pluginfor

@@ -60,8 +60,12 @@ keymap("n", "<leader>f", "<cmd>Telescope git_files<cr>", opts)
 -- Open buffers on telescope
 keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>", opts)
 
+-- Open live grep on telescope
+keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
+
 -- Open marks on telescope
 keymap("n", "<leader>m", "<cmd>Telescope buffers<cr>", opts)
+
 
 -- Open neoclip on telescope
 keymap("n", "<leader>c", "<cmd>Telescope neoclip<cr>", opts)
