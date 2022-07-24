@@ -7,6 +7,8 @@ end
 -- http://neovimcraft.com/plugin/nvim-lualine/lualine.nvim/index.html
 --
 
+local navic = require("nvim-navic")
+
 lualine.setup {
     options = {
         icons_enable= true,
@@ -32,5 +34,15 @@ lualine.setup {
     }
 }
 
+-- require("lualine").setup({
+--     sections = {
+--         lualine_c = {
+--             {
+--                 navic.get_location,
+--                 cond = navic.is_available
+--             },
+--         }
+--     }
+-- })
 -- 
 --        lualine_c = {'location', 'filename'},

@@ -4,19 +4,10 @@ if not status_ok then
 end
 
 
-require("lspconfig").javascript.setup {
+require("lspconfig").tsserver.setup {
     on_attach = function(client, bufnr)
         navic.attach(client, bufnr)
     end
 }
 
-require("lualine").setup({
-    sections = {
-        lualine_z = {
-            {
-                navic.get_location,
-                cond = navic.is_available
-            },
-        }
-    }
-})
+-- Lualine setup is at lualine.lua

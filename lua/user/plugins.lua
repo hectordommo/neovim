@@ -96,8 +96,10 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-tree.lua"
   use "RRethy/vim-illuminate"
   use "ray-x/lsp_signature.nvim"
-  use "gabesoft/vim-ags"
-  use "lukas-reineke/indent-blankline.nvim"
+  use "gabesoft/vim-ags"             -- silver search
+  use "lukas-reineke/indent-blankline.nvim" -- Indent lines guides
+  use "preservim/tagbar"   -- Display a methods bar
+  use "jose-elias-alvarez/null-ls.nvim"   -- better formating
 
   -- Code managment
   use "numToStr/Comment.nvim"

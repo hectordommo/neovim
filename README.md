@@ -1,6 +1,11 @@
 # neovim
 Personal setup for neovim
 
+## Requirements
+
+- brew install ctags
+- brew install ripgrep
+
 ## Setup for Mac/Ubuntu usage.
 
 Setup for a dev env for:
