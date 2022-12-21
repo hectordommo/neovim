@@ -19,6 +19,8 @@ require "user.blankline"
 require "user.sonokai"     -- theme
 require "user.navic"       -- code navigation
 require "user.tagbar"       -- code navigation
+require "user.harpoon"       -- code navigation
+-- require "user.neovide"       -- code navigation
 -- require "user.gps"
 -- require "user.winbar"
 

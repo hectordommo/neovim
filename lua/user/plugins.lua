@@ -100,6 +100,7 @@ return packer.startup(function(use)
   use "lukas-reineke/indent-blankline.nvim" -- Indent lines guides
   use "preservim/tagbar"   -- Display a methods bar
   use "jose-elias-alvarez/null-ls.nvim"   -- better formating
+  use { "ThePrimeagen/harpoon", requires = {'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim'} }   -- better formating
 
   -- Code managment
   use "numToStr/Comment.nvim"

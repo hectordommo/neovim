@@ -29,6 +29,9 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
+-- Make copy not to be lost on paste
+keymap("x", "<leader>p", "\"_dP", opts)
+
 -- Regular save
 keymap('n', '<c-s>', ':w<CR>', {})	  -- ctrl-save <- :w    : NORMAL
 keymap('i', '<c-s>', '<ESC>:w<CR>', {})  -- ctrl-save < ESC :w : INSERT
@@ -53,6 +56,9 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("v", ">", "<gv", opts)
 keymap("v", "<", ">gv", opts)
 
+-- move selected lines up and Down
+keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 
 -- Telescope
 -- keymap("n", "<C-p>", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = true }))<cr>", opts)
@@ -62,6 +68,9 @@ keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>", opts)
 
 -- Open live grep on telescope
 keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
+
+-- Open project files on telescope
+keymap("n", "<leader>pf", "<cmd>Telescope find_files<cr>", opts)
 
 -- Open marks on telescope
 keymap("n", "<leader>m", "<cmd>Telescope buffers<cr>", opts)
