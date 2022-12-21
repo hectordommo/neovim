@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/etc/nginx/sites-available'
+let g:netrw_dirhist_5='/etc/nginx'
+let g:netrw_dirhist_4='/etc/nginx/sites-available'
+let g:netrw_dirhist_3='/home/forge/code/DOMMO-Landings-ONGs'
+let g:netrw_dirhist_2='/home/forge/code'
+let g:netrw_dirhist_1='/home/forge/code/ESIDEA-Dr-Med-Spa'
+let g:netrw_dirhist_0='/home/forge/code/SherpaML'
+let g:netrw_dirhist_9='/home/forge/.config/neovim'
+let g:netrw_dirhist_8='/home/forge/.config/neovim/lua/user'
+let g:netrw_dirhist_7='/home/forge/.config/neovim/lua'

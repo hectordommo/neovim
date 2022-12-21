@@ -77,10 +77,10 @@ return packer.startup(function(use)
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer" -- lang server installer
   -- Treesitter
-  use {
-	"nvim-treesitter/nvim-treesitter",
-	run = ":TSUpdate"
-  }
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate"
+    }
   use "p00f/nvim-ts-rainbow"           -- Rainbow parentheses (config @ treesitter file)
   use "chrisbra/Colorizer"
 
