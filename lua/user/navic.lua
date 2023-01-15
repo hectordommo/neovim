@@ -1,13 +1,49 @@
-local status_ok, navic = pcall(require, "nvim-navic")
+local status_ok, barbecue = pcall(require, "barbecue")
 if not status_ok then
-  return
+    return
 end
 
+barbecue.setup {
+    symbols = {
+        ---modification indicator
+        ---@type string
+        modified = "●",
 
-require("lspconfig").tsserver.setup {
-    on_attach = function(client, bufnr)
-        navic.attach(client, bufnr)
-    end
+        ---truncation indicator
+        ---@type string
+        ellipsis = "…",
+
+        ---entry separator
+        ---@type string
+        separator = "",
+    },
+    kinds = {
+        File = "",
+        Package = "",
+        Module = "",
+        Namespace = "",
+        Macro = "",
+        Class = "",
+        Constructor = "",
+        Field = "",
+        Property = "",
+        Method = "",
+        Struct = "",
+        Event = "",
+        Interface = "",
+        Enum = "",
+        EnumMember = "",
+        Constant = "",
+        Function = "",
+        TypeParameter = "",
+        Variable = "",
+        Operator = "",
+        Null = "",
+        Boolean = "蘒",
+        Number = "",
+        String = "",
+        Key = "",
+        Array = "",
+        Object = "",
+    },
 }
-
--- Lualine setup is at lualine.lua

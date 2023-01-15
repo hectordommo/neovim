@@ -29,8 +29,10 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
--- Make copy not to be lost on paste
-keymap("x", "<leader>p", "\"_dP", opts)
+-- Past the first registry
+keymap("x", "<C-p>", "\"0p", opts)
+-- opts
+-- opts
 
 -- Regular save
 keymap('n', '<c-s>', ':w<CR>', {})	  -- ctrl-save <- :w    : NORMAL

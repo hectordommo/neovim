@@ -12,7 +12,7 @@ require "user.neoscroll"
 require "user.comment"
 require "user.gitsigns"
 require "user.lualine"
--- require "user.nvim-tree"
+ require "user.nvim-tree"
 require "user.neoclip"
 require "user.illuminate"
 require "user.blankline"
@@ -20,6 +20,8 @@ require "user.sonokai"     -- theme
 require "user.navic"       -- code navigation
 require "user.tagbar"       -- code navigation
 require "user.harpoon"       -- code navigation
+require "user.floaterm"    -- Floaterm config
+require "user.markid"    -- Floaterm config
 -- require "user.neovide"       -- code navigation
 -- require "user.gps"
 -- require "user.winbar"

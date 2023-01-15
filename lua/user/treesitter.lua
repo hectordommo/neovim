@@ -1,4 +1,5 @@
 local configs = require("nvim-treesitter.configs")
+local m = require'markid'
 
 configs.setup {
   -- ensure_installed = "maintained",
@@ -40,7 +41,21 @@ configs.setup {
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
-  }
+  },
+  markid = {
+        enable = true,
+        queries = {
+          default = '(identifier) @markid',
+          javascript = [[
+                  (identifier) @markid
+                  (property_identifier) @markid
+                  (shorthand_property_identifier_pattern) @markid
+          ]],
+          php = [[
+            (variable_name) @markid
+          ]]
+        }
+    }
 }
 -- code foinding
 -- :qvimvim.opt.foldmethod = "expr"
