@@ -23,3 +23,6 @@ vim.opt.scrolloff = 3
 vim.opt.clipboard = 'unnamedplus'
 vim.o.guifont = "Hack Nerd Font Mono"
 vim.o.incsearch = true
+
+-- Keymaps timeouts
+vim.opt.ttimeoutlen = 100

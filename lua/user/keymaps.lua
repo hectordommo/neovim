@@ -62,6 +62,8 @@ keymap("v", "<", ">gv", opts)
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 
+
+
 -- Telescope
 -- keymap("n", "<C-p>", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = true }))<cr>", opts)
 keymap("n", "<leader>f", "<cmd>Telescope git_files<cr>", opts)
@@ -75,14 +77,12 @@ keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>pf", "<cmd>Telescope find_files<cr>", opts)
 
 -- Open marks on telescope
-keymap("n", "<leader>m", "<cmd>Telescope buffers<cr>", opts)
-
+keymap("n", "<leader>m", "<cmd>Telescope marks<cr>", opts)
 
 -- Open neoclip on telescope
 keymap("n", "<leader>c", "<cmd>Telescope neoclip<cr>", opts)
 
 --keymap("n", "<leader>ts", "<cmd>Telescope lsp_document_symbols<cr>", opts)
 keymap("n", "<leader>s", "<cmd>Telescope lsp_document_symbols<cr>", opts)
--- Personal keymaps
--- Save with ctrl-s 
---keymap("n",)
+keymap("n", "<leader>nj", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
+
