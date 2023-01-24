@@ -165,6 +165,7 @@ return packer.startup(function(use)
     use "JoosepAlviste/nvim-ts-context-commentstring"
     use "tpope/vim-surround"
     use "AckslD/nvim-neoclip.lua"
+    use { 'echasnovski/mini.nvim', branch = 'stable' }
     -- Git
     use "lewis6991/gitsigns.nvim"
 
