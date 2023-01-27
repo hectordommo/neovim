@@ -1,7 +1,7 @@
--- Setup nvim-cmp.
-local status_ok, mini = pcall(require, "mini.align")
+-- Setup MINI automatic align tool
+local status_ok, ref = pcall(require, "refactoring")
 if not status_ok then
   return
 end
 
-mini.setup()
+ref.setup()

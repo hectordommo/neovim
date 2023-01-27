@@ -23,6 +23,7 @@ require "user.harpoon"       -- code navigation
 require "user.floaterm"    -- Floaterm config
 require "user.markid"    -- Floaterm config
 require "user.alignmini"    -- Floaterm config
+require "user.refactoring"    -- Floaterm config
 -- require "user.neovide"       -- code navigation
 -- require "user.gps"
 -- require "user.winbar"

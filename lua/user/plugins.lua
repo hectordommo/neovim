@@ -166,6 +166,13 @@ return packer.startup(function(use)
     use "tpope/vim-surround"
     use "AckslD/nvim-neoclip.lua"
     use { 'echasnovski/mini.nvim', branch = 'stable' }
+    use {
+        "ThePrimeagen/refactoring.nvim",
+        requires = {
+            {"nvim-lua/plenary.nvim"},
+            {"nvim-treesitter/nvim-treesitter"}
+        }
+    } -- Refactoring tool
     -- Git
     use "lewis6991/gitsigns.nvim"
 
