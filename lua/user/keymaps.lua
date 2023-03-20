@@ -79,7 +79,7 @@ keymap("n", "<leader>pf", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>m", "<cmd>Telescope marks<cr>", opts)
 
 -- Open neoclip on telescope
-keymap("n", "<leader>c", "<cmd>Telescope neoclip<cr>", opts)
+keymap("n", "<leader>cp", "<cmd>Telescope neoclip<cr>", opts)
 
 --keymap("n", "<leader>ts", "<cmd>Telescope lsp_document_symbols<cr>", opts)
 keymap("n", "<leader>s", "<cmd>Telescope lsp_document_symbols<cr>", opts)

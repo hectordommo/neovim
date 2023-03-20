@@ -91,64 +91,65 @@ return packer.startup(function(use)
     use "chrisbra/Colorizer"
 
     -- display code context
-    use {
-        "utilyre/barbecue.nvim",
-        requires = {
-            "neovim/nvim-lspconfig",
-            "smiteshp/nvim-navic",
-            "kyazdani42/nvim-web-devicons", -- optional
-        },
-        after = "nvim-web-devicons", -- NOTICE: keep this if you're using NvChad
-        config = function()
-            require("barbecue").setup({
-                symbols = {
-                    ---modification indicator
-                    ---@type string
-                    modified = "●",
-
-                    ---truncation indicator
-                    ---@type string
-                    ellipsis = "…",
-
-                    ---entry separator
-                    ---@type string
-                    separator = "",
-                },
-                kinds = {
-                    File = "",
-                    Package = "פּ",
-                    Module = "",
-                    Namespace = "",
-                    Macro = "",
-                    Class = "פּ",
-                    Constructor = "",
-                    Field = "",
-                    Property = "",
-                    Method = "m",
-                    Struct = "",
-                    Event = "",
-                    Interface = "",
-                    Enum = "",
-                    EnumMember = "",
-                    Constant = "",
-                    Function = "",
-                    TypeParameter = "",
-                    Variable = "",
-                    Operator = "",
-                    Null = "",
-                    Boolean = "蘒",
-                    Number = "",
-                    String = "",
-                    Key = "",
-                    Array = "",
-                    Object = "",
-                },
-            })
-        end,
-    }
+    --[[ use { ]]
+    --[[     "utilyre/barbecue.nvim", ]]
+    --[[     requires = { ]]
+    --[[         "neovim/nvim-lspconfig", ]]
+    --[[         "smiteshp/nvim-navic", ]]
+    --[[         "kyazdani42/nvim-web-devicons", -- optional ]]
+    --[[     }, ]]
+    --[[     after = "nvim-web-devicons", -- NOTICE: keep this if you're using NvChad ]]
+    --[[     config = function() ]]
+    --[[         require("barbecue").setup({ ]]
+    --[[             symbols = { ]]
+    --[[                 ---modification indicator ]]
+    --[[                 ---@type string ]]
+    --[[                 modified = "●", ]]
+    --[[]]
+    --[[                 ---truncation indicator ]]
+    --[[                 ---@type string ]]
+    --[[                 ellipsis = "…", ]]
+    --[[]]
+    --[[                 ---entry separator ]]
+    --[[                 ---@type string ]]
+    --[[                 separator = "", ]]
+    --[[             }, ]]
+    --[[             kinds = { ]]
+    --[[                 File = "", ]]
+    --[[                 Package = "פּ", ]]
+    --[[                 Module = "", ]]
+    --[[                 Namespace = "", ]]
+    --[[                 Macro = "", ]]
+    --[[                 Class = "פּ", ]]
+    --[[                 Constructor = "", ]]
+    --[[                 Field = "", ]]
+    --[[                 Property = "", ]]
+    --[[                 Method = "m", ]]
+    --[[                 Struct = "", ]]
+    --[[                 Event = "", ]]
+    --[[                 Interface = "", ]]
+    --[[                 Enum = "", ]]
+    --[[                 EnumMember = "", ]]
+    --[[                 Constant = "", ]]
+    --[[                 Function = "", ]]
+    --[[                 TypeParameter = "", ]]
+    --[[                 Variable = "", ]]
+    --[[                 Operator = "", ]]
+    --[[                 Null = "", ]]
+    --[[                 Boolean = "蘒", ]]
+    --[[                 Number = "", ]]
+    --[[                 String = "", ]]
+    --[[                 Key = "", ]]
+    --[[                 Array = "", ]]
+    --[[                 Object = "", ]]
+    --[[             }, ]]
+    --[[         }) ]]
+    --[[     end, ]]
+    --[[ } ]]
     -- Plugins to navigate or improve code navigation
     use "kshenoy/vim-signature"
     use "easymotion/vim-easymotion"
+    use "ggandor/leap.nvim"
     use "karb94/neoscroll.nvim"
     use "kyazdani42/nvim-tree.lua"
     use "RRethy/vim-illuminate"

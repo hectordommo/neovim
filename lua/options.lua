@@ -1,3 +1,6 @@
+-- This file is loaded by init
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.opt.expandtab = true
 vim.opt.numberwidth = 5
 vim.opt.shiftwidth = 4
@@ -18,7 +21,7 @@ vim.opt.fileencoding = "utf-8"
 vim.opt.showtabline = 2
 vim.opt.cmdheight=1             -- Shows better messages
 vim.opt.fileencoding = "utf-8"  -- the encoding written to a file
-vim.opt.updatetime = 300        -- the encoding written to a file
+vim.opt.updatetime = 200        -- faster completion (4000ms default)
 vim.opt.cursorline = true
 vim.opt.scrolloff = 3
 vim.opt.clipboard = 'unnamedplus'
