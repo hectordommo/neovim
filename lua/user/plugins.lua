@@ -85,11 +85,40 @@ return packer.startup(function(use)
     -- Treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
-        run = ":TSUpdate"
+         run = ":TSUpdate"
     }
     use "p00f/nvim-ts-rainbow" -- Rainbow parentheses (config @ treesitter file)
     use "chrisbra/Colorizer"
 
+    use({
+      "utilyre/barbecue.nvim",
+      tag = "*",
+      requires = {
+        "SmiteshP/nvim-navic",
+        "nvim-tree/nvim-web-devicons", -- optional dependency
+      },
+      after = "nvim-web-devicons", -- keep this if you're using NvChad
+      config = function()
+        require("barbecue").setup({
+                theme = {
+                    ellipsis = { fg = "#737aa2" },
+                    separator = { fg = "#737aa2" },
+                    modified = { fg = "#737aa2" },
+                    basename = { bold = true },
+                },
+                kinds = {
+                    Macro = "",
+                    Class = "פּ",
+                    Constructor = "",
+                    Field = "",
+                    Property = "",
+                    Method = "m",
+                    Function = "",
+
+                }
+            })
+      end,
+    })
     -- display code context
     --[[ use { ]]
     --[[     "utilyre/barbecue.nvim", ]]
@@ -167,13 +196,14 @@ return packer.startup(function(use)
     use "tpope/vim-surround"
     use "AckslD/nvim-neoclip.lua"
     use { 'echasnovski/mini.nvim', branch = 'stable' }
-    use {
-        "ThePrimeagen/refactoring.nvim",
-        requires = {
-            {"nvim-lua/plenary.nvim"},
-            {"nvim-treesitter/nvim-treesitter"}
-        }
-    } -- Refactoring tool
+    --[[ use { ]]
+    --[[     "ThePrimeagen/refactoring.nvim", ]]
+    --[[     requires = { ]]
+    --[[         {"nvim-lua/plenary.nvim"}, ]]
+    --[[         {"nvim-treesitter/nvim-treesitter"} ]]
+    --[[     } ]]
+    --[[ }  ]]
+    -- Refactoring tool
     -- Git
     use "lewis6991/gitsigns.nvim"
 

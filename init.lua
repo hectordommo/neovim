@@ -1,7 +1,6 @@
 require "options"
 require "user.keymaps"
 require "user.plugins"
--- require "user.autocommands"
 require "user.cmp"
 require "user.lsp"
 require "user.treesitter"
@@ -12,12 +11,11 @@ require "user.neoscroll"
 require "user.comment"
 require "user.gitsigns"
 require "user.lualine"
- require "user.nvim-tree"
+require "user.nvim-tree"
 require "user.neoclip"
 require "user.illuminate"
 require "user.blankline"
 require "user.sonokai"     -- theme
---[[ require "user.navic"       -- code navigation ]]
 require "user.tagbar"       -- code navigation
 require "user.harpoon"       -- code navigation
 require "user.floaterm"    -- Floaterm config
