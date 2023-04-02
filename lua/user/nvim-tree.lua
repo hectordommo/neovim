@@ -14,6 +14,10 @@ if not config_status_ok then
   return
 end
 
+-- disable netrw at the very start of your init.lua (strongly advised)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
 nvim_tree.setup {
@@ -50,7 +54,7 @@ nvim_tree.setup {
     timeout = 500,
   },
   view = {
-    width = 35,
+    width = 37,
     hide_root_folder = false,
     side = "left",
     adaptive_size = false,
@@ -82,7 +86,7 @@ nvim_tree.setup {
         symlink = "",
         git = {
           unstaged = "",
-          staged = "S",
+          staged = "✓",
           unmerged = "",
           renamed = "➜",
           deleted = "",

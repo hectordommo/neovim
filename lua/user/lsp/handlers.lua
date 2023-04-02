@@ -87,7 +87,7 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
   --[[ vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
-  --[[ vim.api.nvim_add_user_command('format', 'lua vim.lsp.buf.format()', { nargs = 1 }) ]]
+  vim.api.nvim_create_user_command('Format', 'lua vim.lsp.buf.format()', {})
 end
 
 M.on_attach = function(client, bufnr)
@@ -95,7 +95,9 @@ M.on_attach = function(client, bufnr)
     client.server_capabilities.document_formatting = false
   end
   lsp_keymaps(bufnr)
-  lsp_highlight_document(client)
+  if client.server_capabilities.document_highlight then
+    lsp_highlight_document(client)
+  end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
