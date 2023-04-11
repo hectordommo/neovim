@@ -17,3 +17,11 @@ Setup for a dev env for:
 5. NextJs
 6. ReactJs
 7. Laravel
+
+## tabs for js
+
+set autoindent expandtab tabstop=2 shiftwidth=2 softtabstop=2
+
+## tabs for js
+
+set autoindent expandtab tabstop=4 shiftwidth=4 softtabstop=4

@@ -10,8 +10,6 @@ local keymap = vim.api.nvim_set_keymap
  vim.g.mapleader = " "
  vim.g.maplocalleader = " "
 
---add another esc key bind
--- keymap("i", "<A-q>", "<ESC>", {})
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -31,13 +29,12 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- Past the first registry
 keymap("x", "<C-p>", "\"0p", opts)
--- opts
--- opts
+keymap("v", "<leader>p", "\"_dP", opts)
+
 
 -- Regular save
 keymap('n', '<c-s>', ':w<CR>', {})	  -- ctrl-save <- :w    : NORMAL
 keymap('i', '<c-s>', '<ESC>:w<CR>', {})  -- ctrl-save < ESC :w : INSERT
--- keymap('i', '<c-s>', '<ESC>:w<CR>a', {})  -- ctrl-save < ESC :w : INSERT
 
 -- Close buffer
 keymap('n', '<c-w>', ':Bdelete<CR>', {})
@@ -62,7 +59,9 @@ keymap("v", "<", ">gv", opts)
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 
-
+-- keep search next and prev at page center
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
 
 -- Telescope
 keymap("n", "<leader>f", "<cmd>Telescope git_files<cr>", opts)

@@ -133,6 +133,7 @@ return packer.startup(function(use)
     use "jose-elias-alvarez/null-ls.nvim" -- better formating
     use { "ThePrimeagen/harpoon", requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' } } -- better formating
     use 'David-Kunz/markid'
+    use 'nvim-treesitter/nvim-treesitter-context'
 
     -- Code managment
     use "numToStr/Comment.nvim"
@@ -140,6 +141,7 @@ return packer.startup(function(use)
     use "tpope/vim-surround"
     use "AckslD/nvim-neoclip.lua"
     use { 'echasnovski/mini.nvim', branch = 'stable' }
+    use 'mbbill/undotree'
     --[[ use { ]]
     --[[     "ThePrimeagen/refactoring.nvim", ]]
     --[[     requires = { ]]
