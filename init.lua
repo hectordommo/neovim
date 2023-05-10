@@ -3,6 +3,7 @@ require "user.keymaps"
 require "user.plugins"
 require "user.cmp"
 require "user.lsp"
+require "user.mason"
 require "user.treesitter"
 require "user.autopairs"
 require "user.bufferline"
@@ -24,6 +25,7 @@ require "user.alignmini"    -- align text
 require "user.refactoring"    -- Floaterm config
 require "user.leap"    -- Jump to word
 require "user.undotree"    -- Undo tree
+require "user.laravel"    -- laravel helper
 -- require "user.neovide"       -- code navigation
 -- require "user.gps"
 -- require "user.winbar"

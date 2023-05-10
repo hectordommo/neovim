@@ -80,8 +80,10 @@ return packer.startup(function(use)
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
     -- LSP
+    --[[ use "williamboman/nvim-lsp-installer" -- lang server installer ]]
+    use { "williamboman/mason.nvim", run = ":MasonUpdate" }
+    use "williamboman/mason-lspconfig.nvim"
     use "neovim/nvim-lspconfig"
-    use "williamboman/nvim-lsp-installer" -- lang server installer
     -- Treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
@@ -134,6 +136,7 @@ return packer.startup(function(use)
     use { "ThePrimeagen/harpoon", requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' } } -- better formating
     use 'David-Kunz/markid'
     use 'nvim-treesitter/nvim-treesitter-context'
+    use { "chrisgrieser/nvim-spider" }
 
     -- Code managment
     use "numToStr/Comment.nvim"
@@ -142,6 +145,8 @@ return packer.startup(function(use)
     use "AckslD/nvim-neoclip.lua"
     use { 'echasnovski/mini.nvim', branch = 'stable' }
     use 'mbbill/undotree'
+    use 'adalessa/laravel.nvim'
+    use 'gbprod/phpactor.nvim'
     --[[ use { ]]
     --[[     "ThePrimeagen/refactoring.nvim", ]]
     --[[     requires = { ]]

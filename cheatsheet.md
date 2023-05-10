@@ -11,6 +11,10 @@ Show panels: Leader + w
 
 Leader > Ctrl [arrow]
 
+## Find and replace
+
+Find and replace in the hole file
+:%s/foo/bar/g
 
 ## Edit serveral vertical lines
 
