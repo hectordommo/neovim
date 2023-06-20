@@ -93,3 +93,7 @@ vim.keymap.set({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>
 vim.keymap.set({"n", "o", "x"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
 
 
+-- PHP auto namespace 
+vim.keymap.set("n", "<leader>la", "<cmd>GetAllClasses<cr>")
+vim.keymap.set("n", "<leader>lc", "<cmd>GetClass<cr>")
+vim.keymap.set("n", "<leader>ls", "<cmd>SortClass<cr>")

@@ -3,4 +3,5 @@ if not status_ok then
 	return
 end
 
+phpactor.setup({})
 phpactor.rpc('context_menu',{})

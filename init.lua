@@ -5,6 +5,7 @@ require "user.cmp"
 require "user.lsp"
 require "user.mason"
 require "user.treesitter"
+require "user.lsp-signature"
 require "user.autopairs"
 require "user.bufferline"
 require "user.telescope"
@@ -22,10 +23,11 @@ require "user.harpoon"       -- code navigation
 require "user.floaterm"    -- Floaterm config
 require "user.markid"    -- Floaterm config
 require "user.alignmini"    -- align text
-require "user.refactoring"    -- Floaterm config
+require "user.navigator"    -- x-ray/navigator
 require "user.leap"    -- Jump to word
 require "user.undotree"    -- Undo tree
 require "user.laravel"    -- laravel helper
+
 -- require "user.neovide"       -- code navigation
 -- require "user.gps"
 -- require "user.winbar"

@@ -30,6 +30,18 @@ lspconfig.tsserver.setup {
     filetypes = {"javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx"}
 }
 
+lspconfig.lua_ls.setup { 
+    capabilities = require("user.lsp.handlers").capabilities,
+	on_attach = require("user.lsp.handlers").on_attach,
+    filetypes = {"lua"},
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+}
 
 lspconfig.tailwindcss.setup { 
     capabilities = require("user.lsp.handlers").capabilities,

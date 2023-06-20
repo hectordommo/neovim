@@ -1,11 +1,13 @@
 -- This file is loaded by init
+vim.laststatus = 3
+vim.o.laststatus = 3
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.expandtab = true
-vim.opt.numberwidth = 5
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
-vim.opt.tabstop = 4
+vim.opt.numberwidth = 3
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
+vim.opt.tabstop = 2
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.hlsearch = true

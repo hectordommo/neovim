@@ -61,7 +61,8 @@ return packer.startup(function(use)
     use "nvim-telescope/telescope.nvim"
     use "windwp/nvim-autopairs" -- autopair plugin
     use "kyazdani42/nvim-web-devicons"
-    use "akinsho/bufferline.nvim"
+    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
+ 
     use "moll/vim-bbye"
     use {
         'nvim-lualine/lualine.nvim',
@@ -74,6 +75,7 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-cmdline" -- cmdline completions
     use "saadparwaiz1/cmp_luasnip" -- snippet completions
     use "hrsh7th/cmp-nvim-lsp" -- Lsp completion
+    use "ray-x/cmp-treesitter" -- treesitter autoccompletions
 
     -- snippets
     use "L3MON4D3/LuaSnip" --snippet engine
@@ -103,10 +105,12 @@ return packer.startup(function(use)
       config = function()
         require("barbecue").setup({
                 theme = {
+                    normal = { fg = "#c0caf5" },
                     ellipsis = { fg = "#737aa2" },
                     separator = { fg = "#737aa2" },
                     modified = { fg = "#737aa2" },
                     basename = { bold = true },
+                    context_function = { fg = "#2FB215"},
                 },
                 kinds = {
                     Macro = "",
@@ -127,6 +131,11 @@ return packer.startup(function(use)
     use "ggandor/leap.nvim"
     use "karb94/neoscroll.nvim"
     use "nvim-tree/nvim-tree.lua"
+    use({
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      after = "nvim-treesitter",
+      requires = "nvim-treesitter/nvim-treesitter",
+    })
     use "RRethy/vim-illuminate"
     use "ray-x/lsp_signature.nvim"
     use "gabesoft/vim-ags" -- silver search
@@ -135,8 +144,14 @@ return packer.startup(function(use)
     use "jose-elias-alvarez/null-ls.nvim" -- better formating
     use { "ThePrimeagen/harpoon", requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' } } -- better formating
     use 'David-Kunz/markid'
-    use 'nvim-treesitter/nvim-treesitter-context'
     use { "chrisgrieser/nvim-spider" }
+    use({
+      'ray-x/navigator.lua',
+      requires = {
+          { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
+          { 'neovim/nvim-lspconfig' },
+      },
+    })
 
     -- Code managment
     use "numToStr/Comment.nvim"
@@ -146,7 +161,14 @@ return packer.startup(function(use)
     use { 'echasnovski/mini.nvim', branch = 'stable' }
     use 'mbbill/undotree'
     use 'adalessa/laravel.nvim'
+    -- PHP tools
     use 'gbprod/phpactor.nvim'
+    use {  -- packer
+        'ccaglak/namespace.nvim',
+        requires = {
+            "nvim-lua/plenary.nvim"
+        }
+    }
     --[[ use { ]]
     --[[     "ThePrimeagen/refactoring.nvim", ]]
     --[[     requires = { ]]

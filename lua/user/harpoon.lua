@@ -11,3 +11,4 @@ vim.api.nvim_set_keymap('n', "<Leader>h1", [[<Cmd>lua require("harpoon.ui").nav_
 vim.api.nvim_set_keymap('n', "<Leader>h2", [[<Cmd>lua require("harpoon.ui").nav_file(2)<CR>]], options)
 vim.api.nvim_set_keymap('n', "<Leader>h3", [[<Cmd>lua require("harpoon.ui").nav_file(3)<CR>]], options)
 vim.api.nvim_set_keymap('n', "<Leader>h4", [[<Cmd>lua require("harpoon.ui").nav_file(4)<CR>]], options)
+vim.api.nvim_set_keymap('n', "<Leader>h5", [[<Cmd>lua require("harpoon.ui").nav_file(5)<CR>]], options)
