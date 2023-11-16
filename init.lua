@@ -1,4 +1,7 @@
-require "options"
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+require "user.options"
 require "user.keymaps"
 require "user.plugins"
 require "user.cmp"
@@ -23,14 +26,10 @@ require "user.harpoon"   -- code navigation
 require "user.floaterm"  -- Floaterm config
 require "user.markid"    -- Decorate variable
 require "user.alignmini" -- align text
--- require "user.navigator"    -- x-ray/navigator
 require "user.leap"      -- Jump to word
 require "user.undotree"  -- Undo tree
 require "user.laravel"   -- laravel helper
 
--- require "user.neovide"       -- code navigation
--- require "user.gps"
--- require "user.winbar"
 
 
 -- vim.cmd "colorscheme nightfox"
