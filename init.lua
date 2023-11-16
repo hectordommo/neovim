@@ -17,16 +17,16 @@ require "user.nvim-tree"
 require "user.neoclip"
 require "user.illuminate"
 require "user.blankline"
-require "user.sonokai"     -- theme
-require "user.tagbar"       -- code navigation
-require "user.harpoon"       -- code navigation
-require "user.floaterm"    -- Floaterm config
-require "user.markid"    -- Floaterm config
-require "user.alignmini"    -- align text
-require "user.navigator"    -- x-ray/navigator
-require "user.leap"    -- Jump to word
-require "user.undotree"    -- Undo tree
-require "user.laravel"    -- laravel helper
+require "user.sonokai"   -- theme
+require "user.tagbar"    -- code navigation
+require "user.harpoon"   -- code navigation
+require "user.floaterm"  -- Floaterm config
+require "user.markid"    -- Decorate variable
+require "user.alignmini" -- align text
+-- require "user.navigator"    -- x-ray/navigator
+require "user.leap"      -- Jump to word
+require "user.undotree"  -- Undo tree
+require "user.laravel"   -- laravel helper
 
 -- require "user.neovide"       -- code navigation
 -- require "user.gps"

@@ -145,12 +145,20 @@ return packer.startup(function(use)
     use { "ThePrimeagen/harpoon", requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' } } -- better formating
     use 'David-Kunz/markid'
     use { "chrisgrieser/nvim-spider" }
+    --[[ use({ ]]
+    --[[   'ray-x/navigator.lua', ]]
+    --[[   requires = { ]]
+    --[[       { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' }, ]]
+    --[[       { 'neovim/nvim-lspconfig' }, ]]
+    --[[   }, ]]
+    --[[ }) ]]
     use({
-      'ray-x/navigator.lua',
-      requires = {
-          { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
-          { 'neovim/nvim-lspconfig' },
-      },
+      "dnlhc/glance.nvim",
+      config = function()
+        require('glance').setup({
+          -- your configuration
+        })
+      end,
     })
 
     -- Code managment
