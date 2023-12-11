@@ -5,6 +5,7 @@ end
 
 bufferline.setup {
     options = {
+        style_preset = bufferline.style_preset.minimal,
         numbers = "none",                -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
         close_command = "Bdelete! %d",   -- can be a string | function, see "Mouse actions"
         right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
@@ -14,7 +15,7 @@ bufferline.setup {
         -- and so changing this is NOT recommended, this is intended
         -- as an escape hatch for people who cannot bear it for whatever reason
         indicator = {
-            icon = "▎", -- this should be omitted if indicator style is not 'icon'
+            icon = "▎",
             style = 'icon',
         },
         buffer_close_icon = '',
@@ -28,7 +29,9 @@ bufferline.setup {
         tab_size = 21,
         diagnostics = false,
         diagnostics_update_in_insert = false,
-        offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+        offsets = { 
+          { filetype = "NvimTree", text = "", padding = 1 }
+        },
         show_buffer_icons = true,
         show_buffer_close_icons = true,
         show_close_icon = true,

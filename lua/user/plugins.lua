@@ -136,14 +136,19 @@ return packer.startup(function(use)
       after = "nvim-treesitter",
       requires = "nvim-treesitter/nvim-treesitter",
     })
+    use "JoosepAlviste/nvim-ts-context-commentstring"
     use "RRethy/vim-illuminate"
     use "ray-x/lsp_signature.nvim"
     use "gabesoft/vim-ags" -- silver search
     use "lukas-reineke/indent-blankline.nvim" -- Indent lines guides
     use "preservim/tagbar" -- Display a methods bar
     use "jose-elias-alvarez/null-ls.nvim" -- better formating
-    use { "ThePrimeagen/harpoon", requires = { 'nvim-lua/plenary.nvim', 'nvim-lua/popup.nvim' } } -- better formating
     use 'David-Kunz/markid'
+      use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { {"nvim-lua/plenary.nvim"} }
+    }
     use { "chrisgrieser/nvim-spider" }
     --[[ use({ ]]
     --[[   'ray-x/navigator.lua', ]]
@@ -163,7 +168,6 @@ return packer.startup(function(use)
 
     -- Code managment
     use "numToStr/Comment.nvim"
-    use "JoosepAlviste/nvim-ts-context-commentstring"
     use "tpope/vim-surround"
     use "AckslD/nvim-neoclip.lua"
     use { 'echasnovski/mini.nvim', branch = 'stable' }

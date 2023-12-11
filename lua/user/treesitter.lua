@@ -1,6 +1,10 @@
 local configs = require("nvim-treesitter.configs")
 local m = require( 'markid' )
 
+require('ts_context_commentstring').setup {
+  enable_autocmd = false,
+}
+
 configs.setup {
   -- ensure_installed = "maintained",
   ensure_installed = {
@@ -40,10 +44,6 @@ configs.setup {
 	max_file_lines = nil, -- do not enable for files with more that n lines, int
 	-- colors = {}
 	-- termcolors = {} -- table of clour name strings
-  },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
   },
   markid = {
         enable = true,

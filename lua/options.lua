@@ -1,5 +1,5 @@
--- This file is loaded by init
-vim.laststatus = 3
+-- This file is not loaded by init -
+vim.laststatus = 2
 vim.o.laststatus = 3
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

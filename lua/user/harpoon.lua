@@ -3,12 +3,17 @@ if not status_ok then
   return
 end
 
+harpoon.setup()
+
 -- Setup harpoon
 local options = {noremap = true, silent = true, expr = false}
-vim.api.nvim_set_keymap('n', "<Leader>hh", [[<Cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>]], options)
-vim.api.nvim_set_keymap('n', "<Leader>ha", [[<Cmd>lua require("harpoon.mark").add_file()<CR>]], options)
-vim.api.nvim_set_keymap('n', "<Leader>h1", [[<Cmd>lua require("harpoon.ui").nav_file(1)<CR>]], options)
-vim.api.nvim_set_keymap('n', "<Leader>h2", [[<Cmd>lua require("harpoon.ui").nav_file(2)<CR>]], options)
-vim.api.nvim_set_keymap('n', "<Leader>h3", [[<Cmd>lua require("harpoon.ui").nav_file(3)<CR>]], options)
-vim.api.nvim_set_keymap('n', "<Leader>h4", [[<Cmd>lua require("harpoon.ui").nav_file(4)<CR>]], options)
-vim.api.nvim_set_keymap('n', "<Leader>h5", [[<Cmd>lua require("harpoon.ui").nav_file(5)<CR>]], options)
+vim.keymap.set('n', "<Leader>hh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set('n', "<Leader>ha", function() harpoon:list():append() end)
+vim.keymap.set('n', "<Leader>h1", function() harpoon:list():select(1) end)
+vim.keymap.set('n', "<Leader>h2", function() harpoon:list():select(2) end)
+vim.keymap.set('n', "<Leader>h3", function() harpoon:list():select(3) end)
+vim.keymap.set('n', "<Leader>h4", function() harpoon:list():select(4) end)
+vim.keymap.set('n', "<Leader>h5", function() harpoon:list():select(5) end)
+vim.keymap.set('n', "<Leader>h6", function() harpoon:list():select(6) end)
+
+vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
