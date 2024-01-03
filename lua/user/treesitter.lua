@@ -46,7 +46,7 @@ configs.setup {
 	-- termcolors = {} -- table of clour name strings
   },
   markid = {
-        enable = true,
+        markid = true,
         queries = {
           default = '(identifier) @markid',
           tsserver = [[

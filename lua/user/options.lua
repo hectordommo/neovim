@@ -1,7 +1,7 @@
 -- :help options
 vim.opt.backup = false                          -- creates a backup file
 vim.opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
-vim.opt.cmdheight = 2                           -- more space in the neovim command line for displaying messages
+vim.opt.cmdheight = 1                           -- more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0                        -- so that `` is visible in markdown files
 vim.opt.fileencoding = "utf-8"                  -- the encoding written to a file
@@ -47,3 +47,24 @@ vim.opt.shortmess:append "c"
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 -- vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+--
+
+-- Function to toggle between 4 and 2 spaces for tab size
+function ToggleTabSize()
+    local current_tab_size = vim.api.nvim_get_option('tabstop')
+
+    if current_tab_size == 4 then
+        -- If currently using 4 spaces, switch to 2 spaces
+        vim.api.nvim_set_option('tabstop', 2)
+        vim.api.nvim_set_option('shiftwidth', 2)
+        vim.api.nvim_set_option('expandtab', true)
+        print('Switched to 2 spaces for tab size')
+    else
+        -- If currently using 2 spaces or any other size, switch to 4 spaces
+        vim.api.nvim_set_option('tabstop', 4)
+        vim.api.nvim_set_option('shiftwidth', 4)
+        vim.api.nvim_set_option('expandtab', true)
+        print('Switched to 4 spaces for tab size')
+    end
+end
+
