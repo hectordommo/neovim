@@ -56,7 +56,7 @@ return packer.startup(function(use)
     use "sainnhe/sonokai"
     use "themercorp/themer.lua"
     -- use "EdenEast/nightfox.nvim"
-
+    use { "folke/noice.nvim", requires = {"MunifTanjim/nui.nvim"} }
     -- use {'neoclide/coc.nvim', branch = 'release'}
     use "nvim-telescope/telescope.nvim"
     use "windwp/nvim-autopairs" -- autopair plugin
@@ -93,6 +93,7 @@ return packer.startup(function(use)
     }
     use "p00f/nvim-ts-rainbow" -- Rainbow parentheses (config @ treesitter file)
     use "chrisbra/Colorizer"
+    use "nvim-treesitter/nvim-treesitter-context"
 
     use({
       "utilyre/barbecue.nvim",
@@ -150,6 +151,7 @@ return packer.startup(function(use)
         requires = { {"nvim-lua/plenary.nvim"} }
     }
     use { "chrisgrieser/nvim-spider" }
+    use { 'ziontee113/syntax-tree-surfer' }
     --[[ use({ ]]
     --[[   'ray-x/navigator.lua', ]]
     --[[   requires = { ]]
@@ -197,6 +199,9 @@ return packer.startup(function(use)
 
     -- NVIM dev plugings
     use "nvim-treesitter/playground"
+
+  -- Tux nav
+    use "christoomey/vim-tmux-navigator"
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

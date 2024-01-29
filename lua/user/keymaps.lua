@@ -105,3 +105,5 @@ vim.keymap.set("n", "<leader>ls", "<cmd>SortClass<cr>")
 -- Bind the function to a key mapping (you can change this to your preference)
 vim.keymap.set('n', '<leader>ts', ':lua ToggleTabSize()<CR>', { noremap = true, silent = true })
 
+-- Bind the function to a key mapping (you can change this to your preference)
+vim.api.nvim_set_keymap('n', '<leader>tc', ':lua ListAndExecuteCommands()<CR>', { noremap = true, silent = true })

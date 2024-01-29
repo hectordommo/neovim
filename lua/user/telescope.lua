@@ -103,3 +103,31 @@ telescope.setup {
 }
 
 telescope.load_extension "neoclip"
+
+-- Install Telescope if you haven't already
+-- You can use your preferred package manager, for example, with Packer:
+-- use {'nvim-telescope/telescope.nvim'}
+
+-- Load Telescope
+
+-- Define a function to list and execute commands
+function ListAndExecuteCommands()
+    local opts = {
+        prompt_title = 'Commands',
+        layout_strategy = 'vertical',
+        layout_config = {
+            width = 0.8,
+            height = 0.9,
+            preview_cutoff = 120,
+            prompt_position = "top",
+        },
+        sorting_strategy = 'ascending',
+        border = true,
+        results_title = false,
+    }
+
+    -- List all commands
+    require('telescope.builtin').commands(opts)
+end
+
+

@@ -4,6 +4,7 @@ vim.g.loaded_netrwPlugin = 1
 require "user.options"
 require "user.keymaps"
 require "user.plugins"
+require "user.noice"
 require "user.cmp"
 require "user.lsp"
 require "user.mason"
@@ -29,6 +30,8 @@ require "user.alignmini" -- align text
 require "user.leap"      -- Jump to word
 require "user.undotree"  -- Undo tree
 require "user.laravel"   -- laravel helper
+-- require "user.treesurfer"   -- laravel helper
+require "user.treesitter-context"   -- laravel helper
 
 
 

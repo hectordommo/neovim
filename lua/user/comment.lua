@@ -6,9 +6,9 @@ end
 
 comment.setup ()
 
-                --[[ 
-                --line = '<leader>cc',
-                --block = '<leader>bc', ]]
+--[[ 
+--line = '<leader>cc',
+--block = '<leader>bc', ]]
 
 --[[ comment.setup { ]]
 --[[     pre_hook = function(ctx) ]]

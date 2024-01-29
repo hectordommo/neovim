@@ -34,7 +34,7 @@ vim.opt.numberwidth = 4                         -- set number column width to 2 
 vim.opt.signcolumn = "yes"                      -- show the sign column, otherwise would shift the text each time
 
 vim.opt.wrap = false                            -- display lines as one long line
-vim.opt.scrolloff = 8                           -- is one of my fav
+vim.opt.scrolloff = 4                           -- is one of my fav
 vim.opt.sidescrolloff = 8
 vim.opt.guifont = "monospace:h17"               -- the font used in graphical neovim applications
 
