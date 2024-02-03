@@ -63,7 +63,7 @@ return packer.startup(function(use)
     use "kyazdani42/nvim-web-devicons"
     use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
  
-    use "moll/vim-bbye"
+    use "moll/vim-bbye" -- Delete buffers and close files in Vim without closing your windows
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -91,12 +91,12 @@ return packer.startup(function(use)
         "nvim-treesitter/nvim-treesitter",
          run = ":TSUpdate"
     }
-    use "p00f/nvim-ts-rainbow" -- Rainbow parentheses (config @ treesitter file)
+    -- use "p00f/nvim-ts-rainbow" -- Rainbow parentheses (config @ treesitter file)
     use "chrisbra/Colorizer"
     use "nvim-treesitter/nvim-treesitter-context"
 
     use({
-      "utilyre/barbecue.nvim",
+      "utilyre/barbecue.nvim", --A VS Code like winbar for Neovim
       tag = "*",
       requires = {
         "SmiteshP/nvim-navic",
@@ -144,7 +144,7 @@ return packer.startup(function(use)
     use "lukas-reineke/indent-blankline.nvim" -- Indent lines guides
     use "preservim/tagbar" -- Display a methods bar
     use "jose-elias-alvarez/null-ls.nvim" -- better formating
-    use 'David-Kunz/markid'
+    use "David-Kunz/markid"
       use {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
@@ -199,6 +199,12 @@ return packer.startup(function(use)
 
     -- NVIM dev plugings
     use "nvim-treesitter/playground"
+    use({
+      "stevearc/oil.nvim",
+      config = function()
+        require("oil").setup()
+      end,
+    })
 
   -- Tux nav
     use "christoomey/vim-tmux-navigator"

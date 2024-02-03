@@ -20,6 +20,7 @@ require "user.gitsigns"
 require "user.lualine"
 require "user.nvim-tree"
 require "user.neoclip"
+--require "user.oil"
 require "user.illuminate"
 require "user.blankline"
 require "user.sonokai"   -- theme
