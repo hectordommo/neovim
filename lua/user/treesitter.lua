@@ -8,15 +8,18 @@ require('ts_context_commentstring').setup {
 configs.setup {
   -- ensure_installed = "maintained",
   ensure_installed = {
+    'css',
+    'html',
+    'javascript',
+    'json',
+    'lua',
     'php',
     'phpdoc',
-    'javascript',
-    'typescript',
-    'css',
-    'json',
     'prisma',
-    'tsx', 'vue', 'html', 'lua'
-  },
+    'tsx',
+    'typescript',
+    'vue',
+},
   sync_install = false,
   ignore_install = { "" }, -- List of parsers to ignore installing
   autopair = {
@@ -132,3 +135,29 @@ m.colors = {
 -- code foinding
 -- :qvimvim.opt.foldmethod = "expr"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+--
+--
+
+
+local status_ok, gitsigns = pcall(require, "nvim-treesitter.parsers")
+if not status_ok then
+    return
+end
+if status_ok then
+  local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+  parser_config.blade = {
+      install_info = {
+          url = "https://github.com/EmranMR/tree-sitter-blade",
+          files = {"src/parser.c"},
+          branch = "main",
+      },
+      filetype = "blade"
+  }
+
+  vim.filetype.add({
+      pattern = {
+          ['.*%.blade%.php'] = 'blade',
+      }
+  })
+
+end

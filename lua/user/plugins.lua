@@ -105,6 +105,10 @@ return packer.startup(function(use)
       after = "nvim-web-devicons", -- keep this if you're using NvChad
       config = function()
         require("barbecue").setup({
+          symbols = {
+          separator =  ""
+
+        },
                 theme = {
                     normal = { fg = "#c0caf5" },
                     ellipsis = { fg = "#737aa2" },
@@ -114,7 +118,7 @@ return packer.startup(function(use)
                     context_function = { fg = "#2FB215"},
                 },
                 kinds = {
-                    Macro = "",
+                    Macro = "",
                     Class = "פּ",
                     Constructor = "",
                     Field = "",
@@ -143,7 +147,7 @@ return packer.startup(function(use)
     use "gabesoft/vim-ags" -- silver search
     use "lukas-reineke/indent-blankline.nvim" -- Indent lines guides
     use "preservim/tagbar" -- Display a methods bar
-    use "jose-elias-alvarez/null-ls.nvim" -- better formating
+    use "nvimtools/none-ls.nvim" -- better formating
     use "David-Kunz/markid"
       use {
         "ThePrimeagen/harpoon",
@@ -175,6 +179,7 @@ return packer.startup(function(use)
     use { 'echasnovski/mini.nvim', branch = 'stable' }
     use 'mbbill/undotree'
     use 'adalessa/laravel.nvim'
+    use 'EmranMR/tree-sitter-blade'
     -- PHP tools
     use 'gbprod/phpactor.nvim'
     use {  -- packer
