@@ -1,9 +1,10 @@
-local status_ok, laravel = pcall(require, "adalessa/laravel.nvim")
+local status_ok, laravel = pcall(require, "laravel")
 if not status_ok then
   return
 end
 
 laravel.setup {
+    auto_dicover = true,
     bind_telescope = true,
     route_info = true,
     default_runner = "buffer",

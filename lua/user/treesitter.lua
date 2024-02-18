@@ -139,12 +139,13 @@ m.colors = {
 --
 
 
-local status_ok, gitsigns = pcall(require, "nvim-treesitter.parsers")
+local status_ok, parsers = pcall(require, "nvim-treesitter.parsers")
 if not status_ok then
     return
 end
 if status_ok then
   local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+  print('setup up blade')
   parser_config.blade = {
       install_info = {
           url = "https://github.com/EmranMR/tree-sitter-blade",
