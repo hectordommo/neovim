@@ -33,8 +33,7 @@ require "user.undotree"  -- Undo tree
 require "user.laravel"   -- laravel helper
 -- require "user.treesurfer"   -- laravel helper
 require "user.treesitter-context"   -- laravel helper
-require "user.dbee"     -- Database managment
-
+require "user.auto-session"     -- Database managment
 
 
 -- vim.cmd "colorscheme nightfox"

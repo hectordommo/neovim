@@ -108,6 +108,8 @@ configs.setup {
       -- Automatically jump forward to textobj, similar to targets.vim
       lookahead = true,
       keymaps = {
+        ["aa"] = "@parameter.outer",
+        ["ia"] = "@parameter.inner",
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
         ["ac"] = "@class.outer",

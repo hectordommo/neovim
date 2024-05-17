@@ -13,7 +13,7 @@ nvim_tree.setup({
   sort_by = "case_sensitive",
   auto_reload_on_write = true,
   view = {
-    width = 30,
+    width = 35,
   },
   update_focused_file = {
     enable = true,
@@ -26,6 +26,10 @@ nvim_tree.setup({
     timeout = 500,
   },
 })
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+  vim.keymap.set('n', ',c', '<cmd>NvimTreeCollapse<CR>', opts( 'Collapse file explorer'))
 
 local function on_attach(bufnr)
   local api = require "nvim-tree.api"
@@ -40,7 +44,7 @@ local function on_attach(bufnr)
   -- custom mappings
   vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts('Up'))
   vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
-  vim.keymap.set('n', 'h', api.tree.parent_close, opts('Close Directory'))
+  vim.keymap.set('n', '<leader>th', api.tree.parent_close, opts('Close Directory'))
 
   -- Default mappings. Feel free to modify or remove as you wish.
   --

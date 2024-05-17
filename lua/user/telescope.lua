@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
--- telescope.load_extension('media_files')
+-- telescope.load_extension('fzf')
 
 local actions = require "telescope.actions"
 local sorters = require "telescope.sorters"
@@ -11,7 +11,7 @@ local sorters = require "telescope.sorters"
 telescope.setup {
   defaults = {
     file_sorter = sorters.get_fzy_sorter,
-    path_display = { "smart" },
+    path_display = { "truncate" },
 
     mappings = {
       i = {

@@ -3,9 +3,10 @@ if not status_ok then
   return
 end
 
-bufferline.setup {
+bufferline.setup ({
   options = {
     style_preset = bufferline.style_preset.minimal,
+    --mode = 'tabs',
     numbers = "none",                        -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
     themable = true,
     close_command = "Bdelete! %d",           -- can be a string | function, see "Mouse actions"
@@ -27,7 +28,7 @@ bufferline.setup {
     right_trunc_marker = "",
     max_name_length = 20,
     max_prefix_length = 20,
-    tab_size = 21,
+    tab_size = 20,
     diagnostics = false,
     diagnostics_update_in_insert = false,
     offsets = {
@@ -35,7 +36,7 @@ bufferline.setup {
     },
     show_buffer_icons = true,
     show_buffer_close_icons = false,
-    show_close_icon = true,
+    show_close_icon = false,
     show_tab_indicators = true,
     persist_buffer_sort = false,     -- whether or not custom sorted buffers should persist
     -- can also be a table containing 2 custom separators
@@ -44,4 +45,25 @@ bufferline.setup {
     enforce_regular_tabs = true,
     always_show_bufferline = true,
   },
-}
+  highlights = {
+    separator = {
+      guifg = '#073642',
+      guibg = '#002b36'
+    },
+    separator_selected = {
+      guifg = '#073642',
+      guibg = '#002b36'
+    },
+    background = {
+      guibg = '#657b83',
+      guifg = '#002b36'
+    },
+    buffer_selected = {
+      guifg = '#fdf6e3',
+      gui = 'bold'
+    },
+    fill = {
+      guibg = '#073642',
+    }
+  }
+})

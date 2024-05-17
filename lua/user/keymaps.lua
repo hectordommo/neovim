@@ -110,3 +110,17 @@ vim.keymap.set('n', '<leader>ts', ':lua ToggleTabSize()<CR>', { noremap = true, 
 
 -- Bind the function to a key mapping (you can change this to your preference)
 vim.api.nvim_set_keymap('n', '<leader>tc', ':lua ListAndExecuteCommands()<CR>', { noremap = true, silent = true })
+
+
+-- Work with dbee
+--
+vim.keymap.set('n', "<leader>.o", ':lua require("dbee").open()<CR>', {silent = true, noremap = true})
+vim.keymap.set('n', "<leader>.c", ':lua require("dbee").close()<CR>', {silent = true, noremap = true})
+
+
+-- TS Context
+vim.keymap.set('n', '<leader>k', function()
+  require("treesitter-context").go_to_context(vim.v.count1)
+end)
+
+

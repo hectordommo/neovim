@@ -22,6 +22,6 @@ Setup for a dev env for:
 
 set autoindent expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
-## tabs for js
+## tabs for php
 
 set autoindent expandtab tabstop=4 shiftwidth=4 softtabstop=4

@@ -55,10 +55,9 @@ return packer.startup(function(use)
   -- themes
   use "sainnhe/sonokai"
   use "themercorp/themer.lua"
-  -- use "EdenEast/nightfox.nvim"
   use { "folke/noice.nvim", requires = { "MunifTanjim/nui.nvim" } }
-  -- use {'neoclide/coc.nvim', branch = 'release'}
   use "nvim-telescope/telescope.nvim"
+  use "nvim-telescope/telescope-fzf-native.nvim"
   use "windwp/nvim-autopairs"   -- autopair plugin
   use "kyazdani42/nvim-web-devicons"
   use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
@@ -148,6 +147,7 @@ return packer.startup(function(use)
   use "lukas-reineke/indent-blankline.nvim"   -- Indent lines guides
   use "preservim/tagbar"                      -- Display a methods bar
   use "nvimtools/none-ls.nvim"                -- better formating
+  use "jay-babu/mason-null-ls.nvim"
   use "David-Kunz/markid"
   use {
     "ThePrimeagen/harpoon",
@@ -179,6 +179,7 @@ return packer.startup(function(use)
   use { 'echasnovski/mini.nvim', branch = 'stable' }
   use 'mbbill/undotree'
   use 'adalessa/laravel.nvim'
+  use 'rmagatti/auto-session'
   -- PHP tools
   use 'gbprod/phpactor.nvim'
   use 'tpope/vim-dotenv'   -- allor for .env files
@@ -188,26 +189,8 @@ return packer.startup(function(use)
       "nvim-lua/plenary.nvim"
     }
   }
-  -- Database tools
-  use { "kndndrj/nvim-dbee",
-    requires = {
-      "MunifTanjim/nui.nvim",
-    },
-    run = function()
-      -- Install tries to automatically detect the install method.
-      -- if it fails, try calling it with one of these parameters:
-      --    "curl", "wget", "bitsadmin", "go"
-      require("dbee").install()
-    end,
-  }
-  --[[ use { ]]
-  --[[     "ThePrimeagen/refactoring.nvim", ]]
-  --[[     requires = { ]]
-  --[[         {"nvim-lua/plenary.nvim"}, ]]
-  --[[         {"nvim-treesitter/nvim-treesitter"} ]]
-  --[[     } ]]
-  --[[ }  ]]
-  -- Refactoring tool
+  -- /data base
+  use 'tpope/vim-dadbod'
   -- Git
   use "lewis6991/gitsigns.nvim"
 
