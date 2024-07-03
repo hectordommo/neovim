@@ -5,6 +5,7 @@ Personal setup for neovim
 
 - brew install ctags
 - brew install ripgrep
+- brew install fzf
 
 ## Setup for Mac/Ubuntu usage.
 
