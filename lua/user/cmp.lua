@@ -3,12 +3,16 @@ if not cmp_status_ok then
   return
 end
 
+local kind_mapper = require('cmp.types').lsp.CompletitionItemKind
+local compare = require('cmp.config.compare')
+
 local snip_status_ok, luasnip = pcall(require, "luasnip")
 if not snip_status_ok then
   return
 end
 
 require("luasnip/loaders/from_vscode").lazy_load()
+require("vim-react-snippets").lazy_load()
 
 local check_backspace = function()
   local col = vim.fn.col "." - 1
@@ -17,31 +21,40 @@ end
 
 --   פּ ﯟ   some other good icons
 local kind_icons = {
-  Text = "",
-  Method = "m",
-  Function = "",
+  Class = "",
+  Color = "󱊧",
+  Constant = "",
+  Comment = "",
   Constructor = "",
+  Enum = "",
+  EnumMember = "",
+  Event = "",
   Field = "",
-  Variable = "",
-  Class = "",
+  File = "",
+  Folder = "",
+  Function = "",
   Interface = "",
+  Keyword = "",
+  Method = "m",
   Module = "",
+  Operator = "",
   Property = "",
+  Reference = "",
+  Snippet = "󱈤",
+  String = "",
+  Struct = "",
+  Text = "󰊄",
+  TypeParameter = "",
   Unit = "",
   Value = "",
-  Enum = "",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
-  EnumMember = "",
-  Constant = "",
-  Struct = "",
-  Event = "",
-  Operator = "",
-  TypeParameter = "",
+  Variable = "󰫧",
+}
+
+local kind_sorting_score = {
+  Variable = 1,
+  Class = 2,
+  Method = 3,
+  Keyword = 4,
 }
 
 -- find more here: https://www.nerdfonts.com/cheat-sheet
@@ -54,7 +67,7 @@ cmp.setup {
   },
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
-	["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -96,10 +109,10 @@ cmp.setup {
     }),
   },
   formatting = {
-    fields = { "kind", "abbr", "menu" },
+    fields = { "kind", "abbr", "menu"},
     format = function(entry, vim_item)
       -- Kind icons
-      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+      -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind] or vim_item.kind)
       vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
         treesitter = "[TST]",
@@ -112,21 +125,30 @@ cmp.setup {
     end,
   },
   sources = cmp.config.sources( {
-    { name = "treesitter" },
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
     { name = "buffer" },
+    { name = "nvim_lsp" },
+    { name = "treesitter" },
+    { name = "luasnip", Keyword_length = 3 },
     { name = "path" },
   } ),
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-  -- window = {
-  --   documentation = 'native',
+  -- sorting = {
+  --   comparators = {
+  --     compare.recently_used,
+  --     function( entry1, entry2)
+  --       local kind1 = kind_sorting_score[kind_mapper[entry1:get_kind()]] or 100
+  --       local kind2 = kind_sorting_score[kind_mapper[entry2:get_kind()]] or 100
+  --       if( kind1 < kind2) then
+  --         return true
+  --       end
+  --     end
+  --   }
   -- },
   experimental = {
-    ghost_text = false,
+    ghost_text = true,
     native_menu = false,
   },
 }

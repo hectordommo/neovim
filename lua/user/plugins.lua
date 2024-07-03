@@ -75,6 +75,7 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip"   -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"       -- Lsp completion
   use "ray-x/cmp-treesitter"       -- treesitter autoccompletions
+  use "mlaursen/vim-react-snippets"
 
   -- snippets
   use "L3MON4D3/LuaSnip"               --snippet engine
@@ -177,6 +178,7 @@ return packer.startup(function(use)
   use "tpope/vim-surround"
   use "AckslD/nvim-neoclip.lua"
   use { 'echasnovski/mini.nvim', branch = 'stable' }
+  use 'echasnovski/mini.ai'
   use 'mbbill/undotree'
   use 'adalessa/laravel.nvim'
   use 'rmagatti/auto-session'
@@ -189,6 +191,7 @@ return packer.startup(function(use)
       "nvim-lua/plenary.nvim"
     }
   }
+  use {"OlegGulevskyy/better-ts-errors.nvim" } -- Better typescript errors
   -- /data base
   use 'tpope/vim-dadbod'
   -- Git

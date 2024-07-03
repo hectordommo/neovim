@@ -8,9 +8,9 @@ if not status_ok then
 end
 
 require("mason").setup()
-require("mason-lspconfig").setup {
+require("mason-lspconfig").setup ({
   ensure_installed = { "lua_ls", "html", "tsserver", "emmet_ls", "jsonls", "prismals", "tailwindcss", "phpactor" }
-}
+})
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
@@ -18,17 +18,13 @@ lspconfig.phpactor.setup {
   capabilities = require("user.lsp.handlers").capabilities,
   on_attach = require("user.lsp.handlers").on_attach,
   format = {
-    enable = false,
+    enable = true,
     defaultConfig = {
     }
   }
 
 }
 
---[[ lspconfig.intelephense.setup { ]]
---[[     capabilities = require("user.lsp.handlers").capabilities, ]]
---[[ 	on_attach = require("user.lsp.handlers").on_attach ]]
---[[ } ]]
 
 lspconfig.tsserver.setup {
   capabilities = require("user.lsp.handlers").capabilities,

@@ -34,6 +34,7 @@ require "user.laravel"   -- laravel helper
 -- require "user.treesurfer"   -- laravel helper
 require "user.treesitter-context"   -- laravel helper
 require "user.auto-session"     -- Database managment
+require "user.better-ts-errors"     -- Better format for typescript errrors
 
 
 -- vim.cmd "colorscheme nightfox"

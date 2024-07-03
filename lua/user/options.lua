@@ -51,7 +51,7 @@ vim.cmd [[set iskeyword+=-]]
 
 -- Function to toggle between 4 and 2 spaces for tab size
 function ToggleTabSize()
-  local current_tab_size = vim.api.nvim_get_option('tabstop')
+  local current_tab_size = vim.api.nvim_get_option('shiftwidth')
   print('Current tabstop: ' .. current_tab_size)
 
   if current_tab_size == 4 then
