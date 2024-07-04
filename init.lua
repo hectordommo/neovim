@@ -4,6 +4,7 @@ vim.g.loaded_netrwPlugin = 1
 require "user.options"
 require "user.keymaps"
 require "config.lazy"
+require "config.personalize"
 -- require "user.noice"
 -- require "user.cmp"
 -- require "user.lsp"

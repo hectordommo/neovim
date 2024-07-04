@@ -27,7 +27,6 @@
       if not snip_status_ok then
         return
       end
-      print("init cmp")
 
       require("luasnip/loaders/from_vscode").lazy_load()
       require("vim-react-snippets").lazy_load()

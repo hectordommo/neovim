@@ -3,6 +3,7 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
+    "hrsh7th/cmp-nvim-lsp"
   },
   config = function() 
     local status_ok, lsp_installer = pcall(require, "mason")
@@ -11,6 +12,10 @@ return {
     end
     local status_ok, lspconfig = pcall(require, "lspconfig")
     if not status_ok then
+      return
+    end
+    local cmp_status_ok, cmp = pcall(require, "cmp_nvim_lsp")
+    if not cmp_status_ok then
       return
     end
 
@@ -35,7 +40,15 @@ return {
       },
       handlers = {
         function(server_name)
-          lspconfig[server_name].setup({})
+          local capabilities = vim.tbl_deep_extend(
+            "force",
+            {},
+            vim.lsp.protocol.make_client_capabilities(),
+            cmp.default_capabilities() -- attach lsp-cmp completions 
+          )
+          lspconfig[server_name].setup({
+            capabilities = capabilities
+          })
         end
         }
 

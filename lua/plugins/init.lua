@@ -13,7 +13,17 @@ return {
       vim.colorscheme = 'sonokai'
     end
   },
-  { "folke/which-key.nvim", lazy = true },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    config = function()
+      require('which-key').setup({})
+    end
+  },
   "kyazdani42/nvim-web-devicons",
   "williamboman/mason-lspconfig.nvim",
   "neovim/nvim-lspconfig",
@@ -41,7 +51,12 @@ return {
   -- Plugins to navigate or improve code navigation
   {"kshenoy/vim-signature", lazy = true},
   {"easymotion/vim-easymotion", lazy = true},
-  "ggandor/leap.nvim",
+  {
+    "ggandor/leap.nvim",
+    config = function()
+      require('leap').add_default_mappings()
+    end
+  },
   {"karb94/neoscroll.nvim", config = function() require('neoscroll').setup() end},
   "tpope/vim-surround",
   {
@@ -55,9 +70,15 @@ return {
       require('neoclip').setup()
     end
   },
-  "christoomey/vim-tmux-navigator",
+  {"christoomey/vim-tmux-navigator", lazy = true},
   { "David-Kunz/markid", lazy = true },
-  "numToStr/Comment.nvim"
+  "numToStr/Comment.nvim",
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "VeryLazy",
+    opts = {floating_window = true},
+    config = function(_, opts) require'lsp_signature'.setup(opts) end
+  }
 }
 -- "nvim-tree/nvim-tree.lua",
 -- "JoosepAlviste/nvim-ts-context-commentstring",
