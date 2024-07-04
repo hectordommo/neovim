@@ -1,4 +1,5 @@
-plugins
-plugin
 dein-init.vim
+plugin
 .DS_Store
+lazy-lock.json
+lua/.DS_Store

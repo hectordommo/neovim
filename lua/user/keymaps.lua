@@ -25,7 +25,6 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- Past the first registry
 keymap("n", "<c-p>", "\"0p", opts)
@@ -38,7 +37,7 @@ keymap('n', '<c-s>', ':w!<CR>', {silent = true})	  -- ctrl-save <- :w    : NORMA
 keymap('i', '<c-s>', '<ESC>:w<CR>', {})  -- ctrl-save < ESC :w : INSERT
 
 -- Close buffer
-keymap('n', '<c-w>', ':Bdelete<CR>', {})
+keymap('n', '<c-w>', ':bdelete<CR>', {})
 
 
 -- Resize with arrows
@@ -65,32 +64,28 @@ keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 
 -- Telescope
-keymap("n", "<leader>f", "<cmd>Telescope git_files<cr>", opts)
+-- keymap("n", "<leader>f", "<cmd>Telescope git_files<cr>", opts)
 -- Open buffers on telescope
-keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>", opts)
+-- keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>", opts)
 
 -- Open live grep on telescope
-keymap("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
+-- keymap("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
 
 -- Open project files on telescope
-keymap("n", "<leader>pf", "<cmd>Telescope find_files<cr>", opts)
+-- keymap("n", "<leader>pf", "<cmd>Telescope find_files<cr>", opts)
 
 -- Open marks on telescope
-keymap("n", "<leader>m", "<cmd>Telescope marks<cr>", opts)
+-- keymap("n", "<leader>m", "<cmd>Telescope marks<cr>", opts)
 
 -- Open neoclip on telescope
-keymap("n", "<leader>cp", "<cmd>Telescope neoclip<cr>", opts)
+-- keymap("n", "<leader>cp", "<cmd>Telescope neoclip<cr>", opts)
 
 --keymap("n", "<leader>ts", "<cmd>Telescope lsp_document_symbols<cr>", opts)
-keymap("n", "<leader>s", "<cmd>Telescope lsp_document_symbols<cr>", opts)
-keymap("n", "<leader>nj", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
-keymap("n", "<leader>d", "<cmd>Telescope diagnostics<cr>", opts)
-keymap("n", "<leader>gs", "<cmd>Telescope git_status<cr>", opts)
 
-vim.keymap.set({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
-vim.keymap.set({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
-vim.keymap.set({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
-vim.keymap.set({"n", "o", "x"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+-- vim.keymap.set({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+-- vim.keymap.set({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+--vim.keymap.set({"n", "o", "x"}, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+--vim.keymap.set({"n", "o", "x"}, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
 
 
 -- Glance

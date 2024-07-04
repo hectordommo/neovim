@@ -117,8 +117,8 @@ cmp.setup {
       vim_item.menu = ({
         treesitter = "[TST]",
         nvim_lsp = "[LSP]",
-        luasnip = "[Snippet]",
-        buffer = "[Buffer]",
+        luasnip = "[Snip]",
+        buffer = "[Buff]",
         path = "[Path]",
       })[entry.source.name]
       return vim_item
