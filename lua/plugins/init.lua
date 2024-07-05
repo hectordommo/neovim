@@ -49,7 +49,12 @@ return {
     end,
   },
   -- Plugins to navigate or improve code navigation
-  {"kshenoy/vim-signature", lazy = true},
+  {
+    "chentoast/marks.nvim",
+    config = function ()
+      require'marks'.setup({builtin_marks = { ".", "<", ">", "^" }})
+    end
+  },
   {"easymotion/vim-easymotion", lazy = true},
   {
     "ggandor/leap.nvim",
@@ -72,7 +77,12 @@ return {
   },
   {"christoomey/vim-tmux-navigator", lazy = true},
   { "David-Kunz/markid", lazy = true },
-  "numToStr/Comment.nvim",
+  {
+    "numToStr/Comment.nvim",
+    config = function ()
+      require('Comment').setup()
+    end
+  },
   {
     "ray-x/lsp_signature.nvim",
     event = "VeryLazy",

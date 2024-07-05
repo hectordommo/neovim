@@ -5,7 +5,7 @@ return {
   dependencies = {
     "David-Kunz/markid"
   },
-  config = function() 
+  config = function()
     local m = require('markid')
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
@@ -26,7 +26,8 @@ return {
       },
       highlight = {
         enable = true,
-        additional_vim_regex_highlighting = false
+        additional_vim_regex_highlighting = false,
+        disable = { "help" },
       },
       markid = {
         enable = true,
