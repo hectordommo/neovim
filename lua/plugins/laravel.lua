@@ -1,8 +1,16 @@
 return {
   "adalessa/laravel.nvim",
+  dependencies = {
+    "nvim-telescope/telescope.nvim",
+    "tpope/vim-dotenv",
+    "MunifTanjim/nui.nvim",
+    "nvimtools/none-ls.nvim",
+  },
+  cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
   config = function()
     local status_ok, laravel = pcall(require, "laravel")
     if not status_ok then
+      print('No laravel loaded')
       return
     end
 
@@ -56,5 +64,8 @@ return {
         ["make:test"] = "tests/Feature",
       }
     })
-  end
+  end,
+  keys = {
+    {"<leader>a", ":Laravel artisan<cr>", {desc = 'Execute Laravel Artisan commands', silent = true}}
+  }
 }

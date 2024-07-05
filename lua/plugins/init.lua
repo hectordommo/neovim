@@ -102,10 +102,11 @@ return {
   },
   {
     "ray-x/lsp_signature.nvim",
+    enabled = false,
     event = "VeryLazy",
     opts = {floating_window = true},
     config = function(_, opts) require'lsp_signature'.setup(opts) end
-  }
+  },
 }
 -- "nvim-tree/nvim-tree.lua",
 -- "JoosepAlviste/nvim-ts-context-commentstring",

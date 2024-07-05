@@ -89,7 +89,7 @@ keymap("n", "N", "Nzzzv", opts)
 
 
 -- Glance
-vim.keymap.set('n', '<Leader>gd', '<cmd>Glance definitions<CR>')
+-- vim.keymap.set('n', '<Leader>gd', '<cmd>Glance definitions<CR>')
 vim.keymap.set('n', '<Leader>gr', '<cmd>Glance references<CR>')
 
 -- PHP auto namespace 
@@ -98,7 +98,7 @@ vim.keymap.set("n", "<leader>lc", "<cmd>GetClass<cr>")
 vim.keymap.set("n", "<leader>ls", "<cmd>SortClass<cr>")
 
 -- Larael
-vim.keymap.set("n", "<leader>,a", "<cmd>Laravel artisan<cr>")
+-- vim.keymap.set("n", "<leader>,a", "<cmd>Laravel artisan<cr>")
 
 -- Bind the function to a key mapping (you can change this to your preference)
 vim.keymap.set('n', '<leader>ts', ':lua ToggleTabSize()<CR>', { noremap = true, silent = true })

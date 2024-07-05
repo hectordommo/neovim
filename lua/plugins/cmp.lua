@@ -109,66 +109,81 @@
               fallback()
             end
           end, {
-          "i",
-          "s",
-        }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, {
-        "i",
-        "s",
-      }),
-    },
-    formatting = {
-      fields = { "kind", "abbr", "menu"},
-      format = function(entry, vim_item)
-        -- Kind icons
-        -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind] or vim_item.kind)
-        vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-        vim_item.menu = ({
-          treesitter = "[TST]",
-          nvim_lsp = "[LSP]",
-          luasnip = "[Snippet]",
-          buffer = "[Buffer]",
-          path = "[Path]",
-        })[entry.source.name]
-        return vim_item
-      end,
-    },
-    sources = cmp.config.sources( {
-      { name = "buffer" },
-      { name = "nvim_lsp" },
-      { name = "treesitter" },
-      { name = "luasnip", Keyword_length = 3 },
-      { name = "path" },
-    } ),
-    confirm_opts = {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = false,
-    },
-    -- sorting = {
-    --   comparators = {
-    --     compare.recently_used,
-    --     function( entry1, entry2)
-    --       local kind1 = kind_sorting_score[kind_mapper[entry1:get_kind()]] or 100
-    --       local kind2 = kind_sorting_score[kind_mapper[entry2:get_kind()]] or 100
-    --       if( kind1 < kind2) then
-    --         return true
-    --       end
-    --     end
-    --   }
-    -- },
-    experimental = {
-      ghost_text = true,
-      native_menu = false,
-    },
-  })
+              "i",
+              "s",
+            }),
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end, {
+              "i",
+              "s",
+            }),
+        },
+        formatting = {
+          fields = { "kind", "abbr", "menu"},
+          format = function(entry, vim_item)
+            -- Kind icons
+            -- vim_item.kind = string.format("%s", kind_icons[vim_item.kind] or vim_item.kind)
+            vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+            vim_item.menu = ({
+              treesitter = "[TST]",
+              nvim_lsp = "[LSP]",
+              luasnip = "[Snippet]",
+              buffer = "[Buffer]",
+              path = "[Path]",
+            })[entry.source.name]
+            return vim_item
+          end,
+        },
+        sources = cmp.config.sources( {
+          { name = "buffer" },
+          { name = "nvim_lsp" },
+          { name = "treesitter" },
+          { name = "luasnip", Keyword_length = 3 },
+          { name = "path" },
+        } ),
+        confirm_opts = {
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = false,
+        },
+        -- sorting = {
+        --   comparators = {
+        --     compare.recently_used,
+        --     function( entry1, entry2)
+        --       local kind1 = kind_sorting_score[kind_mapper[entry1:get_kind()]] or 100
+        --       local kind2 = kind_sorting_score[kind_mapper[entry2:get_kind()]] or 100
+        --       if( kind1 < kind2) then
+        --         return true
+        --       end
+        --     end
+        --   }
+        -- },
+        experimental = {
+          ghost_text = true,
+          native_menu = false,
+        },
+      })
+      -- `:` cmdline setup.
+      cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = 'path' }
+        }, {
+            {
+              name = 'cmdline',
+              option = {
+                ignore_cmds = { 'Man', '!' }
+              }
+            }
+          })
+      })
+
 
 end,
   }
