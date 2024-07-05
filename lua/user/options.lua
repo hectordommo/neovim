@@ -42,7 +42,7 @@ vim.opt.guifont = "monospace:h17"               -- the font used in graphical ne
 -- vim.opt.foldmethod = "expr"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
-vim.opt.shortmess:append "c"
+-- vim.opt.shortmess:append "c"
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]

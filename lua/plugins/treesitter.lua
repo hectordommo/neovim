@@ -14,6 +14,7 @@ return {
         'php',
         'tsx',
         'typescript',
+        'javascript',
         "json",
         "lua",
         "css"

@@ -7,7 +7,9 @@ return {
     "nvim-lua/plenary.nvim",
     "neovim/nvim-lspconfig"
   },
-  opts = {
-    -- you're options coes here
-  },
+  config = function ()
+    local actor = require('phpactor')
+    actor.setup({})
+    actor.rpc('context_menu', {})
+  end
 }

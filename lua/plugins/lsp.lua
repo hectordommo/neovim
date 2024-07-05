@@ -46,6 +46,9 @@ return {
 
     local on_attach = function (client, bufnr)
       print('server attached', client.name, client.server_capabilities.document_highlight)
+      if client.name == "tsserver" then
+        client.server_capabilities.document_formatting = true
+      end
       local opts = { noremap = true, silent = true }
       vim.keymap.set('n', "gD", "<cmd>lua vim.lsp.buf.declaration()", opts)
       vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -68,7 +71,6 @@ return {
         "lua_ls",
         "html",
         "tsserver",
-        "javascript",
         "emmet_ls",
         "jsonls",
         "prismals",
@@ -89,20 +91,24 @@ return {
             vim.lsp.protocol.make_client_capabilities(),
             cmp.default_capabilities() -- attach lsp-cmp completions 
           )
-          print('server', server_name , ' init')
-          if not (server_name == 'tsserver') then
-            lspconfig[server_name].setup({
-              capabilities = capabilities,
-              on_attach = on_attach
-            })
-          end
-          lspconfig.tsserver.setup(
-            {
-              capabilities = capabilities,
-              on_attach = on_attach,
-              filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-            }
+
+          lspconfig[server_name].setup({
+            capabilities = capabilities,
+            on_attach = on_attach
+          })
+        end,
+        ['tsserver'] = function()
+          local capabilities = vim.tbl_deep_extend(
+            "force",
+            {},
+            vim.lsp.protocol.make_client_capabilities(),
+            cmp.default_capabilities() -- attach lsp-cmp completions 
           )
+          lspconfig.tsserver.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+          })
         end
       }, --end handlers
 

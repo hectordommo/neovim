@@ -3,11 +3,20 @@ return {
   "nvim-lua/popup.nvim",      -- An implementation of the Popup API from vim in Neovim
   "nvim-lua/plenary.nvim",    -- Useful lua functions used ny lots of plugins
   "themercorp/themer.lua",
+  "chrisbra/Colorizer",
+  "moll/vim-bbye",
   {
-    "sainnhe/sonokai", 
-    lazy = false, 
+    'echasnovski/mini.nvim', version = '*',
+    event = "VeryLazy",
+    config = function ()
+      require('mini.align').setup()
+    end
+  },
+  {
+    "sainnhe/sonokai",
+    lazy = false,
     priority = 1000,
-    config = function() 
+    config = function()
       vim.cmd "colorscheme sonokai"
       vim.g.colorscheme = 'sonokai'
       vim.colorscheme = 'sonokai'
@@ -18,7 +27,7 @@ return {
     event = "VeryLazy",
     init = function()
       vim.o.timeout = true
-      vim.o.timeoutlen = 300
+      vim.o.timeoutlen = 500
     end,
     config = function()
       require('which-key').setup({})
@@ -79,8 +88,16 @@ return {
   { "David-Kunz/markid", lazy = true },
   {
     "numToStr/Comment.nvim",
+    event = { "BufReadPre", "BufNewFile"},
+    dependencies = {
+      "JoosepAlviste/nvim-ts-context-commentstring"
+    },
     config = function ()
-      require('Comment').setup()
+      local comment = require('Comment')
+      local jsx = require("ts_context_commentstring.integrations.comment_nvim")
+      comment.setup({
+        pre_hook = jsx.create_pre_hook()
+      })
     end
   },
   {
