@@ -24,6 +24,7 @@ return {
   },
   {
     "folke/which-key.nvim",
+    enabled = false,
     event = "VeryLazy",
     init = function()
       vim.o.timeout = true
@@ -79,7 +80,7 @@ return {
   },
   "gabesoft/vim-ags",
   {  
-    "AckslD/nvim-neoclip.lua", 
+    "AckslD/nvim-neoclip.lua",
     config = function()
       require('neoclip').setup()
     end

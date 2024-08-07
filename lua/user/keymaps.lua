@@ -63,24 +63,6 @@ keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 
--- Telescope
--- keymap("n", "<leader>f", "<cmd>Telescope git_files<cr>", opts)
--- Open buffers on telescope
--- keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>", opts)
-
--- Open live grep on telescope
--- keymap("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
-
--- Open project files on telescope
--- keymap("n", "<leader>pf", "<cmd>Telescope find_files<cr>", opts)
-
--- Open marks on telescope
--- keymap("n", "<leader>m", "<cmd>Telescope marks<cr>", opts)
-
--- Open neoclip on telescope
--- keymap("n", "<leader>cp", "<cmd>Telescope neoclip<cr>", opts)
-
---keymap("n", "<leader>ts", "<cmd>Telescope lsp_document_symbols<cr>", opts)
 
 -- vim.keymap.set({"n", "o", "x"}, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
 -- vim.keymap.set({"n", "o", "x"}, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
@@ -117,5 +99,9 @@ vim.keymap.set('n', "<leader>.c", ':lua require("dbee").close()<CR>', {silent = 
 vim.keymap.set('n', '<leader>k', function()
   require("treesitter-context").go_to_context(vim.v.count1)
 end)
+
+
+vim.keymap.set('n', 'q>', '<cmd>:cnext<CR>', {silent = true, noremap = true})
+vim.keymap.set('n', 'q<', '<cmd>:cp<CR>', {silent = true, noremap = true})
 
 

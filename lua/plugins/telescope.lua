@@ -78,7 +78,6 @@ return {
 
             ["<PageUp>"] = actions.results_scrolling_up,
             ["<PageDown>"] = actions.results_scrolling_down,
-
             ["?"] = actions.which_key,
           },
         },
@@ -118,6 +117,14 @@ return {
     {"<leader>pf", "<cmd>Telescope find_files<cr>"},
     {"<leader>m", "<cmd>Telescope marks<cr>"},
     {"<leader>cp", "<cmd>Telescope neoclip<cr>"},
+    {"<leader>Ws",
+      function ()
+        local builtin = require("telescope.builtin")
+        local word = vim.fn.expand('<cWORD>')
+        builtin.grep_string({search = word})
+      end
+    },
+
   }
 }
 

@@ -27,6 +27,7 @@ vim.opt.shiftwidth = 2                          -- Sets the number of spaces to 
 vim.opt.softtabstop = 2                         -- Controls the number of spaces a tab counts for while performing editing operations, like inserting a tab.
 vim.opt.tabstop = 2                             -- with of the spaces for a tab
 
+vim.opt.cursorcolumn = true                       -- highlight the current line
 vim.opt.cursorline = true                       -- highlight the current line
 vim.opt.number = true                           -- set numbered lines
 vim.opt.relativenumber = true                  -- set relative numbered lines

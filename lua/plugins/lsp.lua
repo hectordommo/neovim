@@ -4,7 +4,8 @@ return {
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "hrsh7th/cmp-nvim-lsp"
+    "hrsh7th/cmp-nvim-lsp",
+    "jay-babu/mason-null-ls.nvim"
   },
   config = function()
     local status_ok, lsp_installer = pcall(require, "mason")
@@ -18,6 +19,20 @@ return {
     local cmp_status_ok, cmp = pcall(require, "cmp_nvim_lsp")
     if not cmp_status_ok then
       return
+    end
+    require("mason-null-ls").setup({
+        handlers = {},
+    })
+
+    local signs = {
+      { name = "DiagnosticSignError", text = "" },
+      { name = "DiagnosticSignWarn", text = "" },
+      { name = "DiagnosticSignHint", text = "" },
+      { name = "DiagnosticSignInfo", text = "" },
+    }
+
+    for _, sign in ipairs(signs) do
+      vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
     end
 
     local function lsp_highlight_document(client)
@@ -50,13 +65,15 @@ return {
         client.server_capabilities.document_formatting = true
       end
       local opts = { noremap = true, silent = true }
-      vim.keymap.set('n', "gD", "<cmd>lua vim.lsp.buf.declaration()", opts)
+      vim.keymap.set('n', "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
       vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+      vim.keymap.set("n", "gR", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
       vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
       vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
       vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
       vim.keymap.set("n", "<leader>td", "<cmd>Telescope lsp_definitions<CR>", opts)
       vim.keymap.set("n", "<leader>tt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+      vim.keymap.set("n", "gl", '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 
       vim.api.nvim_create_user_command('Format', 'lua vim.lsp.buf.format()', {})
       vim.api.nvim_create_user_command('LspRename', 'lua vim.lsp.buf.rename()', {})
@@ -74,7 +91,7 @@ return {
         "emmet_ls",
         "jsonls",
         "prismals",
-        -- "tailwindcss",
+        "tailwindcss",
         "phpactor",
         "cssls"
       },
