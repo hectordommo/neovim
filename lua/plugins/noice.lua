@@ -2,7 +2,12 @@ return {
   "folke/noice.nvim",
   event = "VeryLazy",
   opts = {
-    -- add any options here
+    lsp = {
+          -- add any options here
+      signature =  {
+        enabled = false,
+      }
+    }
   },
   dependencies = {
     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries

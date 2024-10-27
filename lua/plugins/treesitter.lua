@@ -30,7 +30,8 @@ return {
         "json",
         "lua",
         "css",
-        "blade"
+        "blade",
+        "superhtml"
       },
       autopair = {
         enable = true

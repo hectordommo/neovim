@@ -142,9 +142,9 @@
           end,
         },
         sources = cmp.config.sources( {
+          { name = "treesitter" },
           { name = "buffer" },
           { name = "nvim_lsp" },
-          { name = "treesitter" },
           { name = "luasnip", Keyword_length = 3 },
           { name = "path" },
         } ),

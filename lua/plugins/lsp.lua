@@ -87,7 +87,6 @@ return {
       ensure_installed = {
         "lua_ls",
         "html",
-        "tsserver",
         "emmet_ls",
         "jsonls",
         "prismals",
