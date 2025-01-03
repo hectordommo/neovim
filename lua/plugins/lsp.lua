@@ -113,14 +113,14 @@ return {
             on_attach = on_attach
           })
         end,
-        ['tsserver'] = function()
+        ['ts_ls'] = function()
           local capabilities = vim.tbl_deep_extend(
             "force",
             {},
             vim.lsp.protocol.make_client_capabilities(),
             cmp.default_capabilities() -- attach lsp-cmp completions 
           )
-          lspconfig.tsserver.setup({
+          lspconfig.ts_ls.setup({
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
