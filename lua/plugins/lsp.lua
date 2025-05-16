@@ -1,6 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
-  event = { "BufReadPre", "BufNewFile"},
+  event = { "BufReadPost", "BufNewFile"},
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
@@ -31,11 +31,13 @@ return {
       { name = "DiagnosticSignInfo", text = "" },
     }
 
-    for _, sign in ipairs(signs) do
-      vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-    end
+    --  this is deprecated - sign_define
+    -- for _, sign in ipairs(signs) do
+    --   vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+    -- end
+    
 
-    local function lsp_highlight_document(client)
+    local function lsp_highlight_document(client, bufnr)
       -- Set autocommands conditional on server_capabilities
       -- https://sbulav.github.io/til/til-neovim-highlight-references/
       if client.server_capabilities.documentHighlightProvider then
@@ -57,30 +59,30 @@ return {
     end
 
 
-    require("mason").setup()
+    lsp_installer.setup()
 
     local on_attach = function (client, bufnr)
       print('server attached', client.name, client.server_capabilities.document_highlight)
-      if client.name == "tsserver" then
-        client.server_capabilities.document_formatting = true
-      end
-      local opts = { noremap = true, silent = true }
+      local opts = { noremap = true, silent = true , buffer = bufnr }
       vim.keymap.set('n', "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
       vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
       vim.keymap.set("n", "gR", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
       vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
       vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-      vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
       vim.keymap.set("n", "<leader>td", "<cmd>Telescope lsp_definitions<CR>", opts)
       vim.keymap.set("n", "<leader>tt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
       vim.keymap.set("n", "gl", '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 
-      vim.api.nvim_create_user_command('Format', 'lua vim.lsp.buf.format()', {})
-      vim.api.nvim_create_user_command('LspRename', 'lua vim.lsp.buf.rename()', {})
-      -- if client.server_capabilities.document_highlight then
-      --   lsp_highlight_document(client)
-      -- end
-      client.server_capabilities.document_formatting = true
+      -- vim.api.nvim_create_user_command('Format', 'lua vim.lsp.buf.format()', {buffer = bufnr})
+      vim.api.nvim_buf_create_user_command(bufnr, 'Format', function()
+        vim.lsp.buf.format({ async = true })
+      end, {})
+      vim.api.nvim_create_user_command('LspRename', 'lua vim.lsp.buf.rename()', {buffer = bufnr})
+      if client.server_capabilities.document_highlight then
+        lsp_highlight_document(client, bufnr)
+      end
+      -- client.server_capabilities.document_formatting = true
     end
 
     require("mason-lspconfig").setup({
@@ -89,7 +91,6 @@ return {
         "html",
         "emmet_ls",
         "jsonls",
-        "prismals",
         "tailwindcss",
         "phpactor",
         "cssls"
@@ -101,6 +102,7 @@ return {
       },
       handlers = {
         function(server_name)
+          print(' handler for ', server_name)
           local capabilities = vim.tbl_deep_extend(
             "force",
             {},
@@ -130,13 +132,5 @@ return {
 
     })
 
---     vim.api.nvim_create_autcmd('LspAttach', {
---       callback = function(ev)
---         local opts = { noremap = true, silent = true }
---         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
---         vim.api.nvim_buf_set_keymap(ev.buf, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
---         vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
---       end
---     })
   end
 }
