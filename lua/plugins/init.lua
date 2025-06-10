@@ -43,7 +43,7 @@ return {
   {
     "hrsh7th/nvim-cmp",
     -- load cmp on InsertEnter
-    event = "InsertEnter",
+    event = "BufReadPost",
     -- these dependencies will only be loaded when cmp loads
     -- dependencies are always lazy-loaded unless specified otherwise
     dependencies = {
@@ -185,6 +185,7 @@ return {
     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
     "zbirenbaum/copilot.lua", -- for providers='copilot'
     {
+      enabled = false,
       -- support for image pasting
       "HakonHarnes/img-clip.nvim",
       event = "VeryLazy",

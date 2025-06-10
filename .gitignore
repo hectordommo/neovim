@@ -3,3 +3,4 @@ plugin
 .DS_Store
 lazy-lock.json
 lua/.DS_Store
+data.ms

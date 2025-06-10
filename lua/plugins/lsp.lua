@@ -2,9 +2,10 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPost", "BufNewFile"},
   dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason.nvim",
+    "neovim/nvim-lspconfig",
     "hrsh7th/cmp-nvim-lsp",
+    "mason-org/mason-lspconfig.nvim",
     "jay-babu/mason-null-ls.nvim"
   },
   config = function()
@@ -12,8 +13,8 @@ return {
     if not status_ok then
       return
     end
-    local status_ok, lspconfig = pcall(require, "lspconfig")
-    if not status_ok then
+    local status_ok1, lspconfig = pcall(require, "lspconfig")
+    if not status_ok1 then
       return
     end
     local cmp_status_ok, cmp = pcall(require, "cmp_nvim_lsp")
@@ -23,6 +24,7 @@ return {
     require("mason-null-ls").setup({
         handlers = {},
     })
+    print('lsp5')
 
     local signs = {
       { name = "DiagnosticSignError", text = "" },
@@ -58,79 +60,50 @@ return {
       end
     end
 
-
     lsp_installer.setup()
 
-    local on_attach = function (client, bufnr)
-      print('server attached', client.name, client.server_capabilities.document_highlight)
-      local opts = { noremap = true, silent = true , buffer = bufnr }
-      vim.keymap.set('n', "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-      vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-      vim.keymap.set("n", "gR", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-      vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-      vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-      vim.keymap.set("n", "<leader>td", "<cmd>Telescope lsp_definitions<CR>", opts)
-      vim.keymap.set("n", "<leader>tt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
-      vim.keymap.set("n", "gl", '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+    local on_attach = function(_, bufnr)
+        local opts = { noremap = true, silent = true, buffer = bufnr }
+        local keymap = vim.keymap.set
 
-      -- vim.api.nvim_create_user_command('Format', 'lua vim.lsp.buf.format()', {buffer = bufnr})
-      vim.api.nvim_buf_create_user_command(bufnr, 'Format', function()
-        vim.lsp.buf.format({ async = true })
-      end, {})
-      vim.api.nvim_create_user_command('LspRename', 'lua vim.lsp.buf.rename()', {buffer = bufnr})
-      if client.server_capabilities.document_highlight then
-        lsp_highlight_document(client, bufnr)
+        -- Keymaps
+        keymap("n", "gd", vim.lsp.buf.definition, opts)
+        keymap("n", "gD", vim.lsp.buf.declaration, opts)
+        keymap("n", "gi", vim.lsp.buf.implementation, opts)
+        keymap("n", "gr", vim.lsp.buf.references, opts)
+        keymap("n", "<leader>rn", vim.lsp.buf.rename, opts)
+        keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+        keymap("n", "K", vim.lsp.buf.hover, opts)
+        keymap("n", "<leader>e", function()
+          vim.diagnostic.open_float(nil, { border = "rounded" })
+        end, opts)
+        keymap("n", "[d", vim.diagnostic.goto_prev, opts)
+        keymap("n", "]d", vim.diagnostic.goto_next, opts)
       end
-      -- client.server_capabilities.document_formatting = true
-    end
 
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
     require("mason-lspconfig").setup({
       ensure_installed = {
-        "lua_ls",
-        "html",
-        "emmet_ls",
-        "jsonls",
-        "tailwindcss",
-        "phpactor",
-        "cssls"
+        "lua_ls", "html", "emmet_ls", "jsonls", "prismals", "tailwindcss", "phpactor", "cssls"
       },
       highlight = {
         enable = true,    -- false will disable the whole extension
         disable = { "" }, -- list of language that will be disabled
         additional_vim_regex_highlighting = false,
       },
+      automatic_enable = true,
       handlers = {
-        function(server_name)
-          print(' handler for ', server_name)
-          local capabilities = vim.tbl_deep_extend(
-            "force",
-            {},
-            vim.lsp.protocol.make_client_capabilities(),
-            cmp.default_capabilities() -- attach lsp-cmp completions 
-          )
-
-          lspconfig[server_name].setup({
+        function(server)
+          -- print(server)
+          lspconfig[server].setup({
+            on_attach = on_attach,
             capabilities = capabilities,
-            on_attach = on_attach
           })
         end,
-        ['ts_ls'] = function()
-          local capabilities = vim.tbl_deep_extend(
-            "force",
-            {},
-            vim.lsp.protocol.make_client_capabilities(),
-            cmp.default_capabilities() -- attach lsp-cmp completions 
-          )
-          lspconfig.ts_ls.setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-          })
-        end
-      }, --end handlers
-
+      }
     })
+
+    -- Setup servers
 
   end
 }
