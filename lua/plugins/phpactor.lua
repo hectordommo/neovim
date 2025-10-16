@@ -9,7 +9,12 @@ return {
   },
   config = function ()
     local actor = require('phpactor')
-    actor.setup({})
-    actor.rpc('context_menu', {})
+    -- Skip setup to avoid deprecated lspconfig API
+    -- Phpactor LSP is already configured via mason-lspconfig in lsp.lua
+    actor.setup({
+      lspconfig = {
+        enabled = false  -- Disable lspconfig integration
+      }
+    })
   end
 }
