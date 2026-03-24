@@ -5,6 +5,8 @@ return {
   "themercorp/themer.lua",
   "chrisbra/Colorizer",
   "moll/vim-bbye",
+  "EmranMR/tree-sitter-blade",
+  {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons', event = "VeryLazy"},
   {
     "echasnovski/mini.nvim",
     version = "*",
@@ -22,18 +24,6 @@ return {
       vim.cmd("colorscheme sonokai")
       vim.g.colorscheme = "sonokai"
       vim.colorscheme = "sonokai"
-    end,
-  },
-  {
-    "folke/which-key.nvim",
-    enabled = false,
-    event = "VeryLazy",
-    init = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 500
-    end,
-    config = function()
-      require("which-key").setup({})
     end,
   },
   "kyazdani42/nvim-web-devicons",
@@ -68,9 +58,10 @@ return {
   },
   { "easymotion/vim-easymotion",      lazy = true },
   {
-    "ggandor/leap.nvim",
+    url = "https://codeberg.org/andyg/leap.nvim",
     config = function()
-      require("leap").add_default_mappings()
+      vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap)')
+      vim.keymap.set('n',             'S', '<Plug>(leap-from-window)')
     end,
   },
   {
@@ -189,7 +180,6 @@ return {
     "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
     "ibhagwan/fzf-lua", -- for file_selector provider fzf
     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-    "zbirenbaum/copilot.lua", -- for providers='copilot'
     {
       enabled = false,
       -- support for image pasting

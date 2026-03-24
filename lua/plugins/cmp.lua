@@ -12,7 +12,8 @@
       "saadparwaiz1/cmp_luasnip",   -- snippet completions
       "ray-x/cmp-treesitter",      -- treesitter autoccompletions
       "mlaursen/vim-react-snippets",
-      "L3MON4D3/LuaSnip"
+      "L3MON4D3/LuaSnip",
+      'mlaursen/vim-react-snippets',
     },
     config = function()
       local cmp_status_ok, cmp = pcall(require, "cmp")
@@ -28,8 +29,8 @@
         return
       end
 
-      require("luasnip/loaders/from_vscode").lazy_load()
-      require("vim-react-snippets").lazy_load()
+      -- require("luasnip/loaders/from_vscode").lazy_load()
+      require("vim-react-snippets")
 
       local check_backspace = function()
         local col = vim.fn.col "." - 1

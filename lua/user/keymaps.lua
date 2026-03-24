@@ -103,4 +103,11 @@ end)
 vim.keymap.set('n', 'q>', '<cmd>:cnext<CR>', {silent = true, noremap = true})
 vim.keymap.set('n', 'q<', '<cmd>:cp<CR>', {silent = true, noremap = true})
 
+-- copy to clipboard the path to the current buffer
+vim.keymap.set('n', '<leader>yp', function()
+  vim.fn.setreg('+', vim.fn.expand('%:p'))
+end, { desc = 'Yank absolute file path' })
 
+vim.keymap.set('n', '<leader>yr', function()
+  vim.fn.setreg('+', vim.fn.expand('%'))
+end, { desc = 'Yank relative file path' })
