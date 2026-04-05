@@ -1,16 +1,20 @@
 vim.opt.laststatus = 3
+
+-- Ensure homebrew binaries (including tree-sitter) are visible to nvim
+vim.env.PATH = "/opt/homebrew/bin:" .. vim.env.PATH
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 vim.filetype.add({
   pattern = {
-    ['.*%.blade%.php'] = 'php',
+    ['.*%.blade%.php'] = 'blade',
   }
 })
 
 
 require "user.options"
 require "user.keymaps"
+
 require "config.lazy"
 require "config.personalize"
 require "user.functions"

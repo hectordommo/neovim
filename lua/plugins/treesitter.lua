@@ -1,70 +1,35 @@
 return {
-  "nvim-treesitter/nvim-treesitter",
-  lazy = false,
-  build = ":TSUpdate",
-  dependencies = {
-    "David-Kunz/markid",
-    "EmranMR/tree-sitter-blade"
+  {
+    "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    build = ":TSUpdate",
+    config = function()
+      require("nvim-treesitter").setup()
+
+      -- Install parsers that should always be present
+      vim.schedule(function()
+        require("nvim-treesitter").install({
+          "vim", "vimdoc", "c", "lua",
+          "php", "php_only",
+          "tsx", "typescript", "javascript",
+          "json", "css", "html",
+        })
+      end)
+
+      -- Enable treesitter highlighting for all supported filetypes
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function()
+          local ok = pcall(vim.treesitter.start)
+          if not ok then
+            -- parser not installed for this filetype, skip silently
+          end
+        end,
+      })
+    end
   },
-  config = function()
-    local m = require('markid')
-    local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-    parser_config.blade = {
-      install_info = {
-        url = "https://github.com/EmranMR/tree-sitter-blade",
-        files = {"src/parser.c"},
-        branch = "main",
-      },
-      filetype = "blade"
-    }
-
-    require("nvim-treesitter.configs").setup({
-      ensure_installed = {
-        "vim",
-        "c",
-        'php',
-        'php_only',
-        'tsx',
-        'typescript',
-        'javascript',
-        "json",
-        "lua",
-        "css",
-        "blade",
-        "superhtml"
-      },
-      autopair = {
-        enable = true
-      },
-      indent = {
-        enable = true
-      },
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-        disable = { "help" },
-      },
-      markid = {
-        enable = true,
-        colors = m.colors.medium,
-        queries = {
-          default = '(identifier) @markid',
-          tsserver = [[
-          (identifier) @markid
-          (property_identifier) @markid
-          (shorthand_property_identifier_pattern) @markid
-          ]],
-          javascript = [[
-          (identifier) @markid
-          (property_identifier) @markid
-          (shorthand_property_identifier_pattern) @markid
-          ]],
-          php = [[
-          (variable_name) @markid
-          ]]
-        }
-      },
-    })
-  end
+  {
+    -- markid is incompatible with nvim-treesitter v1.0+ (requires old configs module)
+    "David-Kunz/markid",
+    enabled = false,
+  },
 }
-

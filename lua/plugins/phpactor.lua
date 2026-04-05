@@ -13,8 +13,12 @@ return {
     -- Phpactor LSP is already configured via mason-lspconfig in lsp.lua
     actor.setup({
       lspconfig = {
-        enabled = false  -- Disable lspconfig integration
-      }
+        enabled = false
+      },
+      install = {
+        check_on_startup = "none",
+        bin = vim.fn.stdpath("data") .. "/mason/bin/phpactor",
+      },
     })
   end
 }

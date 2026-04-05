@@ -1,3 +1,4 @@
+-- plugins index
 return {
 
   "nvim-lua/popup.nvim",  -- An implementation of the Popup API from vim in Neovim
@@ -5,7 +6,7 @@ return {
   "themercorp/themer.lua",
   "chrisbra/Colorizer",
   "moll/vim-bbye",
-  "EmranMR/tree-sitter-blade",
+  "jwalton512/vim-blade",
   {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons', event = "VeryLazy"},
   {
     "echasnovski/mini.nvim",
@@ -100,7 +101,6 @@ return {
       vim.keymap.set('n', "<CA-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
     end
   },
-  { "David-Kunz/markid",              lazy = true },
   {
     "numToStr/Comment.nvim",
     event = { "BufReadPre", "BufNewFile" },
