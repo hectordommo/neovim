@@ -1,5 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
+  "preservim/vim-pencil",
   event = { "BufReadPost", "BufNewFile"},
   dependencies = {
     "mason-org/mason.nvim",
@@ -11,6 +12,7 @@ return {
   config = function()
     local status_ok, lsp_installer = pcall(require, "mason")
     if not status_ok then
+      print ('mason not available')
       return
     end
     local status_ok1, lspconfig = pcall(require, "lspconfig")
@@ -84,7 +86,7 @@ return {
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     require("mason-lspconfig").setup({
       ensure_installed = {
-        "lua_ls", "html", "emmet_ls", "jsonls", "prismals", "tailwindcss", "phpactor", "cssls"
+        "lua_ls", "html", "emmet_ls", "jsonls", "prismals", "tailwindcss", "phpactor", "cssls", "marksman"
       },
       highlight = {
         enable = true,    -- false will disable the whole extension
