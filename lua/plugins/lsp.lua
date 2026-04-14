@@ -74,7 +74,7 @@ return {
         keymap("n", "<leader>rn", vim.lsp.buf.rename, opts)
         keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts)
         keymap("n", "K", vim.lsp.buf.hover, opts)
-        keymap("n", "<leader>e", function()
+        keymap("n", "<leader>le", function()
           vim.diagnostic.open_float(nil, { border = "rounded" })
         end, opts)
         keymap("n", "[d", vim.diagnostic.goto_prev, opts)
