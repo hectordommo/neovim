@@ -12,7 +12,7 @@ return {
           "vim", "vimdoc", "c", "lua",
           "php", "php_only",
           "tsx", "typescript", "javascript",
-          "json", "css", "html",
+          "json", "css", "html", "markdown"
         })
       end)
 
