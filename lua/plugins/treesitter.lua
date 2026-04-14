@@ -8,7 +8,8 @@ return {
 
       -- Install parsers that should always be present
       vim.schedule(function()
-        require("nvim-treesitter").install({
+        local ts_install = require('nvim-treesitter.install')
+        ts_install.ensure_installed_sync({
           "vim", "vimdoc", "c", "lua",
           "php", "php_only",
           "tsx", "typescript", "javascript",

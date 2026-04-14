@@ -17,7 +17,7 @@ return {
 },
   {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons', event = "VeryLazy"},
   {
-    "echasnovski/mini.nvim",
+    "nvim-mini/mini.nvim",
     version = "*",
     event = "VeryLazy",
     config = function()
@@ -36,7 +36,13 @@ return {
     end,
   },
   "kyazdani42/nvim-web-devicons",
-  "williamboman/mason-lspconfig.nvim",
+  {
+    "mason-org/mason.nvim",
+    config = function()
+      require("mason").setup()
+    end
+  },
+  "mason-org/mason-lspconfig.nvim",
 
   -- cmp plugins
   {
