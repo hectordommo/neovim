@@ -8,13 +8,20 @@ return {
 
       -- Install parsers that should always be present
       vim.schedule(function()
-        local ts_install = require('nvim-treesitter.install')
-        ts_install.ensure_installed_sync({
+        local parsers_to_install = {
           "vim", "vimdoc", "c", "lua",
           "php", "php_only",
           "tsx", "typescript", "javascript",
           "json", "css", "html", "markdown"
-        })
+        }
+
+        local ok, result = pcall(function()
+          return require('nvim-treesitter').install(parsers_to_install):wait(300000)
+        end)
+
+        if not ok then
+          vim.notify("Treesitter parser installation not available in this version", vim.log.levels.WARN)
+        end
       end)
 
       -- Enable treesitter highlighting for all supported filetypes
