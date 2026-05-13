@@ -229,5 +229,11 @@ return {
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {},
-}
+  },
+  {
+    "LucasMiguel/nvim-sync-ftp",    
+    config = function ()
+      require('nvim-sync-ftp').setup()
+    end
+  }
 }
