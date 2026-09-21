@@ -92,7 +92,14 @@ return {
       require("null-ls").setup({ sources = require("null-ls").builtins.formatting.stylua })
     end,
   },
-  "gabesoft/vim-ags",
+  {
+    "gabesoft/vim-ags",
+    init = function()
+      -- The async job path passes quoted color args to `ag` literally,
+      -- so ag returns no matches. Run synchronously instead.
+      vim.g.ags_enable_async = 0
+    end,
+  },
   {
     "AckslD/nvim-neoclip.lua",
     config = function()
