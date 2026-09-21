@@ -1,4 +1,5 @@
 -- :help options
+vim.g.editorconfig = false                      -- don't let project .editorconfig files override our filetype-based indent settings
 vim.opt.backup = false                          -- creates a backup file
 vim.opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 1                           -- more space in the neovim command line for displaying messages
@@ -24,9 +25,9 @@ vim.opt.updatetime = 200                        -- faster completion (4000ms def
 vim.opt.writebackup = false                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 
 vim.opt.expandtab = true                        -- convert tabs to spaces
-vim.opt.shiftwidth = 2                          -- Sets the number of spaces to use for each step of (auto)indent.
-vim.opt.softtabstop = 2                         -- Controls the number of spaces a tab counts for while performing editing operations, like inserting a tab.
-vim.opt.tabstop = 2                             -- with of the spaces for a tab
+vim.opt.shiftwidth = 4                          -- Sets the number of spaces to use for each step of (auto)indent.
+vim.opt.softtabstop = 4                         -- Controls the number of spaces a tab counts for while performing editing operations, like inserting a tab.
+vim.opt.tabstop = 4                             -- with of the spaces for a tab
 
 vim.opt.cursorcolumn = true                       -- highlight the current line
 vim.opt.cursorline = true                       -- highlight the current line
