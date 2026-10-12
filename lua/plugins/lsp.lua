@@ -24,7 +24,6 @@ return {
     require("mason-null-ls").setup({
         handlers = {},
     })
-    print('lsp5')
 
     local signs = {
       { name = "DiagnosticSignError", text = "" },
