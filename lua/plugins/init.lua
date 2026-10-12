@@ -4,7 +4,7 @@ return {
   "themercorp/themer.lua",
   "chrisbra/Colorizer",
   "moll/vim-bbye",
-  "jwalton512/vim-blade",
+  "sheerun/vim-polyglot",
   "folke/twilight.nvim",
   "preservim/vim-pencil",
 {
